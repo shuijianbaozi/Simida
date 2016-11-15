@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.my.simida.R;
+import com.example.my.simida.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class MyFragment extends Fragment {
+public class MyFragment extends BaseFragment {
 
 
     public MyFragment() {

@@ -8,11 +8,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.my.simida.R;
+import com.example.my.simida.base.BaseFragment;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstPageFragment extends Fragment {
+public class FirstPageFragment extends BaseFragment {
 
 
     public FirstPageFragment() {
@@ -24,7 +25,7 @@ public class FirstPageFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_shouye, container, false);
+        return inflater.inflate(R.layout.fragment_firstpage, container, false);
     }
 
 }

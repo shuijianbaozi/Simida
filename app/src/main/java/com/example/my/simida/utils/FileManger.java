@@ -2,7 +2,7 @@ package com.example.my.simida.utils;
 
 import android.os.Environment;
 
-import com.example.apple.gotowhere.App;
+import com.example.my.simida.App;
 
 import java.io.File;
 
