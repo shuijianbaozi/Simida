@@ -2,6 +2,7 @@ package com.example.my.simida.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,19 +14,23 @@ import com.example.my.simida.base.BaseFragment;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstPageFragment extends BaseFragment {
+public class FirstPageFragment extends BaseFragment{
 
-
-    public FirstPageFragment() {
-        // Required empty public constructor
-    }
-
+   public static FirstPageFragment newInstance(){
+       FirstPageFragment firstPageFragment = new FirstPageFragment();
+       Bundle args = new Bundle();
+      firstPageFragment.setArguments(args);
+       return firstPageFragment;
+   }
 
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_firstpage, container, false);
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
+    @Nullable
+    @Override
+    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
+        return super.onCreateView(inflater, container, savedInstanceState);
+    }
 }

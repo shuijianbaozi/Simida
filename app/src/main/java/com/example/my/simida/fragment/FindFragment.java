@@ -2,6 +2,7 @@ package com.example.my.simida.fragment;
 
 
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,10 +17,17 @@ import com.example.my.simida.base.BaseFragment;
 public class FindFragment extends BaseFragment {
 
 
-    public FindFragment() {
-        // Required empty public constructor
+    public static FindFragment newInstance() {
+        FindFragment findFragment = new FindFragment();
+        Bundle args = new Bundle();
+        findFragment.setArguments(args);
+        return findFragment;
     }
 
+    @Override
+    public void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
