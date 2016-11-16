@@ -27,7 +27,7 @@
         <RadioGroup
             android:id="@+id/layout_tab"
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="60dp"
             android:layout_weight="1"
             android:gravity="center"
             android:orientation="horizontal">
@@ -41,13 +41,14 @@
                 android:button="@null"
                 android:checked="true"
                 android:drawableTop="@drawable/tab1_item"
+                android:drawablePadding="-25dp"
                 android:gravity="center"
                 android:onClick="ClickButton"
                 android:text="首页"
-
-                />
+                android:textSize="9sp" />
 
             <RadioButton
+                android:drawablePadding="-25dp"
                 android:id="@+id/rbtn_tab2"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -56,9 +57,11 @@
                 android:drawableTop="@drawable/tab2_item"
                 android:gravity="center"
                 android:onClick="ClickButton"
-                android:text="品牌" />
+                android:text="品牌"
+                android:textSize="9sp"/>
 
             <RadioButton
+                android:drawablePadding="-25dp"
                 android:id="@+id/rbtn_tab3"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -67,9 +70,11 @@
                 android:drawableTop="@drawable/tab3_item"
                 android:gravity="center"
                 android:onClick="ClickButton"
-                android:text="发现" />
+                android:text="发现"
+                android:textSize="9sp"/>
 
             <RadioButton
+                android:drawablePadding="-25dp"
                 android:id="@+id/rbtn_tab4"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -78,9 +83,11 @@
                 android:drawableTop="@drawable/tab4_item"
                 android:gravity="center"
                 android:onClick="ClickButton"
-                android:text="分类" />
+                android:text="分类"
+                android:textSize="9sp"/>
 
             <RadioButton
+                android:drawablePadding="-25dp"
                 android:id="@+id/rbtn_tab5"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
@@ -89,7 +96,8 @@
                 android:drawableTop="@drawable/tab5_item"
                 android:gravity="center"
                 android:onClick="ClickButton"
-                android:text="我的" />
+                android:text="我的"
+                android:textSize="9sp"/>
 
         </RadioGroup>
 
