@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="fragmentname">
+        <item>firstPageFragment</item>
+        <item>brandFragment</item>
+        <item>findFragment</item>
+        <item>typrFragment</item>
+        <item>myFragment</item>
+    </string-array>
+</resources>
