@@ -35,6 +35,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     private List<Fragment> mMainFragments = new ArrayList<>();
     private FragmentManager mFragmentManager = getSupportFragmentManager();
 
+//    //TODO TabLayLayout
+//    public static final String[] TITLES = {"人气","时尚","美容","私蜜圈","TOP榜"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -56,12 +59,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         FirstPageFragment firstPageFragment = FirstPageFragment.newInstance();
         BrandFragment brandFragment = BrandFragment.newInstance();
         FindFragment findFragment = FindFragment.newInstance();
-        TypeFragment typrFragment = TypeFragment.newInstance();
+        TypeFragment typeFragment = TypeFragment.newInstance();
         MyFragment myFragment = MyFragment.newInstance();
         mMainFragments.add(firstPageFragment);
         mMainFragments.add(brandFragment);
         mMainFragments.add(findFragment);
-        mMainFragments.add(typrFragment);
+        mMainFragments.add(typeFragment);
         mMainFragments.add(myFragment);
 
         String[] stringArray = getResources().getStringArray(R.array.fragmentname);

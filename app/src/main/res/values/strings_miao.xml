@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="Type_search_hint">请输入商品名称或品牌名称</string>
+
+
+    <string name="Type_item_a">一周主题</string>
+    <string name="Type_item_b" >好物推荐，人手一件的超人气单品</string>
+
+    <string name="Type_item_a1">撩汉必备</string>
+    <string name="Type_item_a2">热推品牌</string>
+    <string name="Type_item_a3">必备服饰</string>
+    <string name="Type_item_a4">毛呢精选</string>
+    <string name="Type_item_a5">品牌自制</string>
+    <string name="Type_item_a6">帅气短装</string>
+
+    <string name="Type_item_b1">#长筒靴#</string>
+    <string name="Type_item_b2">#Chlo D.Manon#</string>
+    <string name="Type_item_b3">#围巾#</string>
+    <string name="Type_item_b4">#外套#</string>
+    <string name="Type_item_b5">#针织#</string>
+    <string name="Type_item_b6">#短款#</string>
+
+
+
+    <string name="Type_item_c">热搜关键</string>
+    <string name="Type_item_d">当季必须get的时髦元素</string>
+
+
+
+    <string name="Type_item_e">女装</string>
+    <string name="Type_item_f">轻松打造最IN造型</string>
+    <string name="Type_item_g">鞋包配饰</string>
+    <string name="Type_item_h">一应俱全的时髦装备</string>
+    <string name="Type_item_i">男装</string>
+    <string name="Type_item_j">MAX你的男友力</string>
+    <string name="Type_item_k">婴幼儿</string>
+    <string name="Type_item_l">妈妈，我们也要美美哒</string>
+
+</resources>
