@@ -4,4 +4,14 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+    <string name="home_btn1_my">关注品牌</string>
+    <string name="home_btn2_new">新品速递</string>
+    <string name="home_btn3_top">热销榜单</string>
+    <string name="home_btn4_sale">促销专区</string>
+
+    <string name="home_firstpage_title1">韩流新潮</string>
+    <string name="home_firstpage_title2">流行重点</string>
+    <string name="home_firstpage_title3">买手推荐</string>
+    <string name="home_firstpage_title3_down">买手推荐的潮流单品</string>
+
 </resources>
