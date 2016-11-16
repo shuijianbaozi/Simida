@@ -53,6 +53,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         rbtnTab3.setOnClickListener(this);
         rbtnTab4.setOnClickListener(this);
         rbtnTab5.setOnClickListener(this);
+
     }
 
     private void initData() {
@@ -104,6 +105,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 break;
         }
     }
+
     public void displayFragment(int num) {
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         for (int i = 0; i < mMainFragments.size(); i++) {

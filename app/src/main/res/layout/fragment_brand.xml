@@ -1,13 +1,98 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/blue"
+    android:fitsSystemWindows="true"
     tools:context="com.example.my.simida.fragment.BrandFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/appbar_brand"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="brand" />
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true">
 
-</FrameLayout>
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/toolbarlayout_brand"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fitsSystemWindows="true"
+            app:contentScrim="?attr/colorPrimary"
+            app:layout_scrollFlags="scroll">
+            <!--图片占位 TextView-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/common_google_signin_btn_text_dark_pressed" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_fragbrand_left"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/aquamarine" />
+
+                    <TextView
+                        android:id="@+id/tv_fragbrand_center"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/antiquewhite" />
+
+                    <TextView
+                        android:id="@+id/tv_fragbrand_right"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="@color/brown" />
+                </LinearLayout>
+
+                <android.support.v7.widget.RecyclerView
+                    android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/chartreuse" />
+
+                <android.support.v4.view.ViewPager
+                    android:layout_width="match_parent"
+                    android:layout_height="500dp"
+                    android:background="@color/darkgoldenrod">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@color/colorPrimaryDark" />
+                </android.support.v4.view.ViewPager>
+            </LinearLayout>
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="1500dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="1500dp"
+                android:background="@color/burlywood">
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center"
+                    android:text="我是tablayout" />
+            </LinearLayout>
+        </ScrollView>
+    </android.support.design.widget.AppBarLayout>
+
+</android.support.design.widget.CoordinatorLayout>

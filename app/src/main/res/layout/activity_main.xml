@@ -76,8 +76,8 @@
                 android:drawableTop="@drawable/tab1_item"
                 android:drawablePadding="-25dp"
                 android:gravity="center"
-                android:onClick="ClickButton"
-                android:text="首页"
+                a:onClick="ClickButton"
+                androindroidd:text="首页"
                 android:textSize="9sp" />
 
             <RadioButton
