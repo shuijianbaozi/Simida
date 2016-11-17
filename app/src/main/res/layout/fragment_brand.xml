@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/blue"
+    android:background="@color/white"
     tools:context="com.example.my.simida.fragment.BrandFragment">
 
     <android.support.design.widget.AppBarLayout
@@ -17,48 +17,102 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:fitsSystemWindows="true"
-            app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll">
             <!--图片占位 TextView-->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
-
+                <!--顶部图片的布局-->
                 <ImageView
+                    android:id="@+id/iv_brand_top"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:scaleType="fitXY"
                     android:src="@drawable/brand_top" />
+                <!--精选菜单的布局-->
+                <TextView
+                    android:id="@+id/tv_brandframgment_jingxuan"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:background="@color/white"
+                    android:paddingLeft="10dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
+                    android:background="@color/white"
                     android:orientation="horizontal">
 
-                    <TextView
-                        android:id="@+id/tv_fragbrand_left"
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/aquamarine" />
+                        android:orientation="vertical">
 
-                    <TextView
-                        android:id="@+id/tv_fragbrand_center"
-                        android:layout_width="0dp"
-                        android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        android:background="@color/antiquewhite" />
+                        <ImageView
+                            android:id="@+id/tv_fb_jing_left"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY" />
 
-                    <TextView
-                        android:id="@+id/tv_fragbrand_right"
+                        <ImageView
+                            android:id="@+id/iv_fb_jing_left"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:background="@color/brown" />
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/tv_fb_jing_center"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY" />
+
+                        <ImageView
+                            android:id="@+id/iv_fb_jing_center"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                    </LinearLayout>
+
+                    <LinearLayout
+
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:id="@+id/tv_fb_jing_right"
+                            android:layout_width="match_parent"
+                            android:layout_height="0dp"
+                            android:layout_margin="5dp"
+                            android:layout_weight="1"
+                            android:scaleType="fitXY" />
+
+                        <ImageView
+                            android:id="@+id/iv_fb_jing_right"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp" />
+                    </LinearLayout>
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#F6F5F9" />
+                <!--中间商标布局-->
                 <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_fb_shangbiao"
                     android:layout_width="match_parent"
                     android:layout_height="150dp"
                     android:background="@color/chartreuse" />
