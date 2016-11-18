@@ -1,6 +1,7 @@
 package com.example.my.simida.http;
 
 import com.example.my.simida.bean.brandfragment.BrandBean;
+import com.example.my.simida.bean.firstpagefragment.CountInfo;
 import com.example.my.simida.config.UrlConfig;
 
 import retrofit2.Retrofit;
@@ -48,6 +49,10 @@ public class HttpUtils {
 
     public Observable<BrandBean> getBrandBean(String brandurl) {
         return mApi.getBrandBean(brandurl);
+    }
+
+    public Observable<CountInfo> getCountInfo(String brandurl) {
+        return mApi.getCountInfo(brandurl);
     }
 
 }

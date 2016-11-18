@@ -154,7 +154,6 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         initTop();
         initJingxuan();
         initRecycleSb();
-
     }
 
     private void initRecycleSb() {

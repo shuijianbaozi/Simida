@@ -3,6 +3,6 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
 
-    <dimen name="home_firstpage_title">20sp</dimen>
+    <dimen name="home_firstpage_title">15sp</dimen>
     <dimen name="firstpage_hanliuxinchao_image">50dp</dimen>
 </resources>

@@ -1,13 +1,15 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<com.example.my.simida.utils.FreeScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
     tools:context="com.example.my.simida.fragment.FirstPageFragment">
 
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
-
         <LinearLayout
             android:id="@+id/firstpage_header_linearlayout"
             android:orientation="horizontal"
@@ -42,6 +44,7 @@
             android:src="@mipmap/home_btn4_sale"
             />
         </LinearLayout>
+
         <LinearLayout
             android:id="@+id/firstpage_header_linearlayout2"
             android:layout_below="@id/firstpage_header_linearlayout"
@@ -90,13 +93,18 @@
             android:text="@string/home_firstpage_title1"
             android:textSize="@dimen/home_firstpage_title"/>
 
-        <ImageView
-            android:id="@+id/firstpage_hanliuxinchao_image1"
+        <LinearLayout
+            android:orientation="vertical"
             android:layout_width="match_parent"
-            android:layout_height="@dimen/firstpage_hanliuxinchao_image"
-            android:background="@color/colorPrimaryDark"/>
+            android:layout_height="wrap_content">
 
-        <ImageView
+            <ImageView
+                android:id="@+id/firstpage_hanliuxinchao_image1"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/firstpage_hanliuxinchao_image"
+                android:background="@color/colorPrimaryDark"/>
+
+            <ImageView
             android:id="@+id/firstpage_hanliuxinchao_image2"
             android:layout_width="match_parent"
             android:layout_height="@dimen/firstpage_hanliuxinchao_image"
@@ -107,6 +115,8 @@
             android:layout_width="match_parent"
             android:layout_height="@dimen/firstpage_hanliuxinchao_image"
             android:background="@color/colorPrimary"/>
+        </LinearLayout>
+
     </LinearLayout>
 
 
@@ -126,6 +136,7 @@
             android:textSize="@dimen/home_firstpage_title"/>
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/firstpage_recyclerview1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
@@ -133,6 +144,7 @@
 
 
         </android.support.v7.widget.RecyclerView>
+
     </LinearLayout>
         <TextView
             android:id="@+id/home_firstpage_title3"
@@ -153,13 +165,13 @@
 
 
         <android.support.v7.widget.RecyclerView
+            android:id="@+id/firstpage_recyclerview2"
             android:layout_below="@id/home_firstpage_title3_down"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-
-
         </android.support.v7.widget.RecyclerView>
 
     </RelativeLayout>
-</FrameLayout>
+
+</com.example.my.simida.utils.FreeScrollView>

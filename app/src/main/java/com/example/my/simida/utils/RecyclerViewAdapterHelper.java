@@ -10,8 +10,7 @@ import java.util.List;
 /**
  * Created by StevenWang on 16/8/2.
  */
-public abstract class RecyclerViewAdapterHelper<T> extends RecyclerView.Adapter<RecyclerView
-        .ViewHolder> {
+public abstract class RecyclerViewAdapterHelper<T> extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
     public Context mContext = null;
     public List<T> mList = null;
     public LayoutInflater mInflater = null;
