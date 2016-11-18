@@ -4,8 +4,13 @@ package com.example.my.simida.fragment;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.AppBarLayout;
+import android.support.design.widget.CollapsingToolbarLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -25,8 +30,15 @@ import com.example.my.simida.bean.brandfragment.RankingBean;
 import com.example.my.simida.bean.brandfragment.RecommendBean;
 import com.example.my.simida.bean.brandfragment.ShopListBean;
 import com.example.my.simida.fragment.brandfragment.BrandRecycleSbAdapter;
+import com.example.my.simida.fragment.brandfragment.BrandRvListAdapter;
+import com.example.my.simida.fragment.brandfragment.ChaorenFragment;
 import com.example.my.simida.fragment.brandfragment.IRvOnItemClickListener;
+import com.example.my.simida.fragment.brandfragment.MypagerAdapter;
+import com.example.my.simida.fragment.brandfragment.NvshenFragment;
+import com.example.my.simida.fragment.brandfragment.RexiaoFragment;
+import com.example.my.simida.fragment.brandfragment.YifaFragment;
 import com.example.my.simida.http.HttpUtils;
+import com.example.my.simida.wiget.MyItemAnimator;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +71,24 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     ImageView ivFbJingRight;
     @BindView(R.id.rv_fb_shangbiao)
     RecyclerView rvFbShangbiao;
+    @BindView(R.id.vp_fb)
+    ViewPager vpFb;
+    @BindView(R.id.toolbarlayout_brand)
+    CollapsingToolbarLayout toolbarlayoutBrand;
+    @BindView(R.id.appbar_brand)
+    AppBarLayout appbarBrand;
+    @BindView(R.id.tv_fb_all)
+    TextView tvFbAll;
+    @BindView(R.id.tv_fb_nvzhaung)
+    TextView tvFbNvzhaung;
+    @BindView(R.id.tv_fb_shoes)
+    TextView tvFbShoes;
+    @BindView(R.id.tv_fb_nanzhuang)
+    TextView tvFbNanzhuang;
+    @BindView(R.id.tv_fb_child)
+    TextView tvFbChild;
+    @BindView(R.id.rv_fb_list)
+    RecyclerView rvFbList;
 
     private Context mContext;
     //一堆需要用的集合
@@ -71,6 +101,11 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private List<RecommendBean.OtherListBean> mlistOther = new ArrayList<>();
     private List<RecommendBean.BrandListBean> mlistrvsb = new ArrayList<>();
     private BrandRecycleSbAdapter adapter = null;
+    //viewpager 的相关数据
+    private List<Fragment> listFrangment = new ArrayList<>();
+    private FragmentManager manager = null;
+    private MypagerAdapter mypagerAdapter = null;
+    private BrandRvListAdapter mRvListAdapter = null;
 
     /**
      * context 赋值
@@ -98,6 +133,26 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         ButterKnife.bind(this, view);
         String jingxuan = "<big><strong>精选推荐     </strong></big><small><i>不容错过的品牌</i></small>";
         tvBrandframgmentJingxuan.setText(Html.fromHtml(jingxuan));
+        initTextlist();
+        initRecycleSb();
+        initRecycleList();
+        getJson();
+
+        return view;
+    }
+
+    private void initTextlist() {
+
+    }
+
+    private void initRecycleList() {
+        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, OrientationHelper.VERTICAL, false);
+        mRvListAdapter = new BrandRvListAdapter(mContext, mlistLists);
+        rvFbList.setAdapter(mRvListAdapter);
+        rvFbList.setLayoutManager(linearLayoutManager);
+    }
+
+    private void getJson() {
         String brandUrl = "http://pcache.thestyledo.com/p/www/asia/pcdata/600s/android/shoplist.wish";
         Log.e("url", brandUrl);
         HttpUtils.newInstance().getBrandBean(brandUrl)
@@ -122,20 +177,22 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
                         initView();
                     }
                 });
-        return view;
     }
 
+    /**
+     * 所有图标的 集合
+     */
     private void initTubiao() {
         for (int i = 0; i < 6; i++) {
-            int num = (int)( Math.random() * 93);
-            Log.e("num------>",""+num);
+            int num = (int) (Math.random() * 93);
+//            Log.e("num------>", "" + num);
             RecommendBean.BrandListBean brandListBean = mlistBrands.get(num);
             mlistrvsb.add(brandListBean);
-            Log.e("mlistrvsb.size",""+mlistrvsb.size());
+//            Log.e("mlistrvsb.size", "" + mlistrvsb.size());
             int shopNo = mlistrvsb.get(0).getShopNo();
-            Log.e("qq",mlistrvsb.get(0).getShopNo()+"");
+//            Log.e("qq", mlistrvsb.get(0).getShopNo() + "");
         }
-                //adapter.notifyDataSetChanged();
+        //adapter.notifyDataSetChanged();
 
     }
 
@@ -153,7 +210,22 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private void initView() {
         initTop();
         initJingxuan();
-        initRecycleSb();
+        initVp();
+
+    }
+
+    private void initVp() {
+        manager = getChildFragmentManager();
+        RexiaoFragment rexiaoFragment = RexiaoFragment.newInstance();
+        NvshenFragment nvshenFragment = NvshenFragment.newInstance();
+        ChaorenFragment chaorenFragment = ChaorenFragment.newInstance();
+        YifaFragment yifaFragment = YifaFragment.newInstance();
+        listFrangment.add(nvshenFragment);
+        listFrangment.add(yifaFragment);
+        listFrangment.add(rexiaoFragment);
+        listFrangment.add(chaorenFragment);
+        mypagerAdapter = new MypagerAdapter(manager, listFrangment);
+        vpFb.setAdapter(mypagerAdapter);
     }
 
     private void initRecycleSb() {
@@ -161,7 +233,8 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         GridLayoutManager manager = new GridLayoutManager(mContext, 3, OrientationHelper.VERTICAL, false);
         rvFbShangbiao.setAdapter(adapter);
         rvFbShangbiao.setLayoutManager(manager);
-
+        rvFbShangbiao.setItemAnimator(new MyItemAnimator());
+//        rvFbShangbiao.addItemDecoration(new DividerGridItemDecoration(mContext));
 //        rvFbShangbiao.setLayoutManager();
 
     }
@@ -199,9 +272,9 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
      */
     private void initTop() {
         String bannerImg = mlistBanners.get(1).getBannerImg();
-        Log.e("change1", "" + bannerImg);
+//        Log.e("change1", "" + bannerImg);
         bannerImg = getFinalUrl(bannerImg, 1000, 500);
-        Log.e("change2", "" + bannerImg);
+//        Log.e("change2", "" + bannerImg);
         Glide.with(mContext).load(bannerImg).into(ivBrandTop);
     }
 
@@ -240,6 +313,14 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         mlistBrands.addAll(brandList);
         List<RecommendBean.OtherListBean> otherList = brandBean.getResult().getRecommend().getOtherList();
         mlistOther.addAll(otherList);
+        adapter.notifyDataSetChanged();
+        mRvListAdapter.notifyDataSetChanged();
+
+    }
+
+
+    public List<RankingBean> getRankingBean() {
+        return mlistRankings;
     }
 
     @Override

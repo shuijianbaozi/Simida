@@ -9,4 +9,5 @@ public class UrlConfig {
     public static final String URL_BASE_TLC = "http://img.thestyledo.cn/tlc/";
     public static final String URL_BASE2_TSC = "http://img.thestyledo.cn/tsc/";
     public static final String URL_BASE2_TL = "http://img.thestyledo.cn/tl/";
+    public static final String URL_BRAND_RVLIST_BASE = "http://img.thestyledo.cn/tlc/1000x500";
 }

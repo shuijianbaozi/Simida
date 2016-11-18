@@ -35,6 +35,7 @@ public class BrandRecycleSbAdapter extends RecyclerViewAdapterHelper<RecommendBe
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, final int position) {
         MyViewHolder viewHolder = (MyViewHolder) holder;
+
         final RecommendBean.BrandListBean brandListBean = mList.get(position);
         Log.e("brandList",""+brandListBean.getLogoImg());
         Glide.with(mContext).load(getFinalUrl(brandListBean.getLogoImg(),800,400)).into(viewHolder.imageView);

@@ -114,13 +114,28 @@
                 <android.support.v7.widget.RecyclerView
                     android:id="@+id/rv_fb_shangbiao"
                     android:layout_width="match_parent"
+                    android:layout_height="150dp"
+                    android:background="@color/white" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="5dp"
+                    android:background="#F0F0F0" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
                     android:background="@color/white"
-                    android:layout_height="150dp"/>
+                    android:paddingLeft="10dp"
+                    android:text="品牌排行榜"
+                    android:textSize="18sp"
+                    android:textStyle="bold" />
 
                 <android.support.v4.view.ViewPager
+                    android:id="@+id/vp_fb"
                     android:layout_width="match_parent"
-                    android:layout_height="500dp"
-                    android:background="@color/darkgoldenrod">
+                    android:layout_height="410dp"
+                    android:background="@color/white">
 
                     <TextView
                         android:layout_width="match_parent"
@@ -130,22 +145,72 @@
             </LinearLayout>
         </android.support.design.widget.CollapsingToolbarLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="1500dp">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="1500dp"
-                android:background="@color/burlywood">
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:gravity="center"
-                    android:text="我是tablayout" />
-            </LinearLayout>
-        </ScrollView>
     </android.support.design.widget.AppBarLayout>
 
+    <LinearLayout
+
+        android:layout_width="match_parent"
+        android:layout_height="1500dp"
+        android:background="@color/white"
+        android:orientation="vertical"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_fb_all"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onBrandTvClick"
+                android:text="全部" />
+
+            <TextView
+                android:id="@+id/tv_fb_nvzhaung"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onBrandTvClick"
+                android:text="女装" />
+
+            <TextView
+                android:id="@+id/tv_fb_shoes"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onBrandTvClick"
+                android:text="鞋包配饰" />
+
+            <TextView
+                android:id="@+id/tv_fb_nanzhuang"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onBrandTvClick"
+                android:text="男装" />
+
+            <TextView
+                android:id="@+id/tv_fb_child"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:onClick="onBrandTvClick"
+                android:text="婴幼儿" />
+
+        </LinearLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_fb_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
 </android.support.design.widget.CoordinatorLayout>
