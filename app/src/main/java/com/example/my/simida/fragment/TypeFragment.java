@@ -20,6 +20,7 @@ import com.example.my.simida.adapter.TypeAdapter;
 import com.example.my.simida.base.BaseFragment;
 
 import com.example.my.simida.bean.typefragment.ListBean;
+import com.example.my.simida.bean.typefragment.RecommendStyleBean;
 import com.example.my.simida.bean.typefragment.TypeBean;
 import com.example.my.simida.http.HttpUtils;
 
@@ -43,13 +44,12 @@ public class TypeFragment extends BaseFragment implements TypeAdapter.IOnItemCli
     Button btnSearchType;
     @BindView(R.id.Type_recyclerView)
     RecyclerView TypeRecyclerView;
-    @BindView(R.id.Type_recyclerViewId)
-    RecyclerView TypeRecyclerViewId;
+
     //圆形图片+文字A+文字B
     private Context mContext;
     private TypeAdapter mTypeAdapter;
     private List<ListBean> mlist=new ArrayList<>();
-
+    private List<RecommendStyleBean.ListBean> mRecommendStyleListbean=new ArrayList<>();
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
@@ -116,6 +116,8 @@ public class TypeFragment extends BaseFragment implements TypeAdapter.IOnItemCli
                         List<ListBean> list = typeBean.getResult().getRecommendCornerList().getList();
                         mlist.addAll(list);
                         mTypeAdapter.notifyDataSetChanged();
+                        List<RecommendStyleBean.ListBean> list1 = typeBean.getResult().getRecommendStyle().getList();
+                        mRecommendStyleListbean.addAll(list1);
                     }
                 });
     }

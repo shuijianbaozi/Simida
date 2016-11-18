@@ -2,6 +2,7 @@ package com.example.my.simida.http;
 
 import com.example.my.simida.bean.brandfragment.BrandBean;
 import com.example.my.simida.bean.firstpagefragment.CountInfo;
+import com.example.my.simida.bean.typefragment.TypeBean;
 import com.example.my.simida.config.UrlConfig;
 
 import retrofit2.Retrofit;

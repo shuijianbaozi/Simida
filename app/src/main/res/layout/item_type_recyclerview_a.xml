@@ -6,6 +6,7 @@
     android:orientation="vertical">
 
     <ImageView
+
         android:background="@color/white"
         android:scaleType="fitXY"
         android:id="@+id/item_Type_recyclerView_img"
