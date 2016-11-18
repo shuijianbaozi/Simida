@@ -50,6 +50,10 @@ public class HttpUtils {
     public Observable<BrandBean> getBrandBean(String brandurl) {
         return mApi.getBrandBean(brandurl);
     }
+    public Observable<TypeBean> getTypeBean(String typeurl) {
+        return mApi.getTypeBean(typeurl);
+    }
+
 
     public Observable<CountInfo> getCountInfo(String brandurl) {
         return mApi.getCountInfo(brandurl);
