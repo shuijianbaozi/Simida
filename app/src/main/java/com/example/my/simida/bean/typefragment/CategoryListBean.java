@@ -60,6 +60,19 @@ public  class CategoryListBean {
     }
 
     public static class ListBean {
+        @Override
+        public String toString() {
+            return "ListBean{" +
+                    "repImgUrl='" + repImgUrl + '\'' +
+                    ", cateGrpNo=" + cateGrpNo +
+                    ", topBadge='" + topBadge + '\'' +
+                    ", cateNm='" + cateNm + '\'' +
+                    ", imgUrl1='" + imgUrl1 + '\'' +
+                    ", cateNo2=" + cateNo2 +
+                    ", cateNo1=" + cateNo1 +
+                    '}';
+        }
+
         @SerializedName("rep_img_url")
         private String repImgUrl;
         @SerializedName("cate_grp_no")

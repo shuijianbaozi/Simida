@@ -61,7 +61,6 @@ public class Firstpage_Recycler2_Adapter extends RecyclerViewAdapterHelper<MdPic
         });
     }
 
-
     //自定义ViewHolder
     class MyViewHolder extends RecyclerView.ViewHolder{
 

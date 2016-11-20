@@ -130,5 +130,18 @@ public  class RecommendStyleBean {
         public void setSearchWord(String searchWord) {
             this.searchWord = searchWord;
         }
+
+        @Override
+        public String toString() {
+            return "ListBean{" +
+                    "repImgUrl='" + repImgUrl + '\'' +
+                    ", template='" + template + '\'' +
+                    ", recKeyword='" + recKeyword + '\'' +
+                    ", recWordNo=" + recWordNo +
+                    ", cateNo=" + cateNo +
+                    ", recDesc='" + recDesc + '\'' +
+                    ", searchWord='" + searchWord + '\'' +
+                    '}';
+        }
     }
 }
