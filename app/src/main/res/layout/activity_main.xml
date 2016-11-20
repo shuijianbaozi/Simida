@@ -28,13 +28,12 @@
                     android:layout_alignParentLeft="true"
                     android:src="@mipmap/header_btn_noti"/>
 
-                <TextView
+                <ImageView
                     android:id="@+id/main_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
-                    android:text="私密搭"
-                    android:typeface="monospace"
+                    android:src="@mipmap/header_logo_smida"
                     android:textSize="20sp"/>
 
                 <ImageView
@@ -55,7 +54,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="#000000" />
+            android:background="@color/gray" />
 
         <RadioGroup
             android:id="@+id/layout_tab"

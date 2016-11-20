@@ -14,4 +14,13 @@
     <string name="home_firstpage_title3">买手推荐</string>
     <string name="home_firstpage_title3_down">买手推荐的潮流单品</string>
 
+    <string name="my_text_up">快快加入[StyleWish私蜜搭],</string>
+    <string name="my_text_down">收集属于你的时尚吧</string>
+    <string name="my_btn_start">开始</string>
+
+    <string name="my_btn1_mileage">积分</string>
+    <string name="my_btn2_coupon">优惠券</string>
+    <string name="my_btn3_cart">购物车</string>
+    <string name="my_btn4_order">查看订单</string>
+
 </resources>

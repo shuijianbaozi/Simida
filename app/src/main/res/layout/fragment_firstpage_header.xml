@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <FrameLayout
+        android:background="@mipmap/firstpage_header_green"
+        android:layout_margin="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            
+            <TextView
+                android:id="@+id/firstpage_header1_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header1_text2"
+                android:layout_below="@id/firstpage_header1_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header1_collection_talk_cnt"
+                android:layout_below="@id/firstpage_header1_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_toRightOf="@id/firstpage_header1_collection_talk_cnt"
+                android:layout_alignTop="@id/firstpage_header1_collection_talk_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="篇帖子"/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:background="@mipmap/firstpage_header_blue"
+        android:layout_margin="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/firstpage_header2_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header2_text2"
+                android:layout_below="@id/firstpage_header2_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header2_collection_talk_cnt"
+                android:layout_below="@id/firstpage_header2_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_toRightOf="@id/firstpage_header2_collection_talk_cnt"
+                android:layout_alignTop="@id/firstpage_header2_collection_talk_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="篇帖子"/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+    <FrameLayout
+        android:background="@mipmap/firstpage_header_pink"
+        android:layout_margin="3dp"
+        android:layout_width="match_parent"
+        android:layout_height="80dp">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/firstpage_header3_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header3_text2"
+                android:layout_below="@id/firstpage_header3_text1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/firstpage_header3_collection_talk_cnt"
+                android:layout_below="@id/firstpage_header3_text2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:layout_toRightOf="@id/firstpage_header3_collection_talk_cnt"
+                android:layout_alignTop="@id/firstpage_header3_collection_talk_cnt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="篇帖子"/>
+
+        </RelativeLayout>
+    </FrameLayout>
+
+
+</LinearLayout>

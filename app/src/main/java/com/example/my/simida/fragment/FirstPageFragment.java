@@ -25,6 +25,7 @@ import com.example.my.simida.base.BaseFragment;
 import com.example.my.simida.bean.firstpagefragment.CountInfo;
 import com.example.my.simida.bean.firstpagefragment.MdPickBean;
 import com.example.my.simida.bean.firstpagefragment.StylePickBean;
+import com.example.my.simida.bean.firstpagefragment.TrendPickBean;
 import com.example.my.simida.http.HttpUtils;
 
 import java.util.ArrayList;
@@ -50,10 +51,15 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
     //集合
     private List<StylePickBean> mStylePickBeenList = new ArrayList<>();
     private List<MdPickBean.MdPickListBean> mMdPickListBeanList = new ArrayList<>();
+    private List<TrendPickBean> mTrendPickBeanList = new ArrayList<>();
 
     //控件
     private ImageView mImageView,mImageView_rep,mImageView_logo;
     private TextView mTextView1, mTextView2, mTextView_likecnt;
+    //header的控件
+    private TextView mTextView1_header1,mTextView2_header1,mTextView3_header1
+            ,mTextView1_header2,mTextView2_header2,mTextView3_header2
+            ,mTextView1_header3,mTextView2_header3,mTextView3_header3;
 
 
     public static FirstPageFragment newInstance() {
@@ -67,6 +73,8 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
 
     @Override
     public void onAttach(Context context) {
@@ -102,7 +110,20 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         mRecyclerView2.setLayoutManager(gridLayoutManager);
         mFirstpage_recycler2_adapter = new Firstpage_Recycler2_Adapter(mContext,mMdPickListBeanList,mIOnItemClickListener2);
         mRecyclerView2.setAdapter(mFirstpage_recycler2_adapter);
+        //header的控件
+        mTextView1_header1 = (TextView) view.findViewById(R.id.firstpage_header1_text1);
+        mTextView2_header1 = (TextView) view.findViewById(R.id.firstpage_header2_text1);
+        mTextView3_header1 = (TextView) view.findViewById(R.id.firstpage_header3_text1);
+        mTextView1_header2 = (TextView) view.findViewById(R.id.firstpage_header1_text2);
+        mTextView2_header2 = (TextView) view.findViewById(R.id.firstpage_header2_text2);
+        mTextView3_header2 = (TextView) view.findViewById(R.id.firstpage_header3_text2);
+        mTextView1_header3 = (TextView) view.findViewById(R.id.firstpage_header1_collection_talk_cnt);
+        mTextView2_header3 = (TextView) view.findViewById(R.id.firstpage_header2_collection_talk_cnt);
+        mTextView3_header3 = (TextView) view.findViewById(R.id.firstpage_header3_collection_talk_cnt);
+
     }
+
+
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -126,33 +147,12 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
                     @Override
                     public void onNext(CountInfo countInfo) {
                         getList1(countInfo);
+                        getList2(countInfo);
+                        getList3(countInfo);
                         int cnt = countInfo.getResult().getStylePick().get(0).getCnt();
                         Log.e("qqq", "qqq" + cnt);
                     }
                 });
-
-        //RecyclerView2的json
-        String firstpageUrl2 = "http://pcache.thestyledo.com/p/www/asia/pcdata/600s/android/home/8_mi.wish";
-        HttpUtils.newInstance().getCountInfo(firstpageUrl2)
-                .subscribeOn(Schedulers.io())
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Subscriber<CountInfo>() {
-                    @Override
-                    public void onCompleted() {
-
-                    }
-
-                    @Override
-                    public void onError(Throwable e) {
-
-                    }
-
-                    @Override
-                    public void onNext(CountInfo countInfo) {
-                        getList2(countInfo);
-                    }
-                });
-
     }
 
     @Override
@@ -188,5 +188,31 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         mMdPickListBeanList.clear();
         mMdPickListBeanList.addAll(mdPickList);
         mFirstpage_recycler2_adapter.notifyDataSetChanged();
+    }
+    private void getList3(CountInfo countInfo){
+        List<TrendPickBean> trendPickBeen = countInfo.getResult().getTrendPick();
+        mTrendPickBeanList.addAll(trendPickBeen);
+        initView();
+    }
+
+    private void initView() {
+        String TextView1_header1 = mTrendPickBeanList.get(0).getText1();
+        mTextView1_header1.setText(TextView1_header1);
+        String TextView2_header1 = mTrendPickBeanList.get(0).getText2();
+        mTextView2_header1.setText(TextView2_header1);
+        int TextView3_header1 = mTrendPickBeanList.get(0).getCollectionTalkCnt();
+        mTextView3_header1.setText(TextView3_header1);
+        String TextView1_header2 = mTrendPickBeanList.get(1).getText1();
+        mTextView1_header2.setText(TextView1_header2);
+        String TextView2_header2 = mTrendPickBeanList.get(1).getText2();
+        mTextView2_header2.setText(TextView2_header2);
+        int TextView3_header2 = mTrendPickBeanList.get(1).getCollectionTalkCnt();
+        mTextView3_header2.setText(TextView3_header2);
+        String TextView1_header3 = mTrendPickBeanList.get(2).getText1();
+        mTextView1_header3.setText(TextView1_header3);
+        String TextView2_header3 = mTrendPickBeanList.get(2).getText2();
+        mTextView2_header3.setText(TextView2_header3);
+        int TextView3_header3 = mTrendPickBeanList.get(2).getCollectionTalkCnt();
+        mTextView3_header3.setText(TextView3_header3);
     }
 }
