@@ -36,4 +36,19 @@
     <string name="Type_item_k">婴幼儿</string>
     <string name="Type_item_l">妈妈，我们也要美美哒</string>
 
+    <string name="login">登录</string>
+    <string name="usernameHint">请输入用户名</string>
+    <string name="passwordHint">请输入密码</string>
+
+    <string name="password2">再次确认密码</string>
+    <string name="register">注册</string>
+    <string name="admit">提交信息</string>
+
+    <string name="note1">*注册代表同意</string>
+    <string name="note2">[StyleWish私蜜搭]服务协议条款</string>
+
+
+    <string name="forgetPsw">忘记密码?</string>
+    <string name="otherPlan">第三方登录</string>
+
 </resources>

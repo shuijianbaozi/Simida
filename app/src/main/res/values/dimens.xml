@@ -10,4 +10,7 @@
     <dimen name="item_type_text_h">30dp</dimen>
 
 
+    <dimen name="item_icon_qq">60dp</dimen>
+
+
 </resources>
