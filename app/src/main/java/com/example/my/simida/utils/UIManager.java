@@ -5,6 +5,8 @@ import android.content.Context;
 import android.content.Intent;
 
 import com.example.my.simida.MainActivity;
+import com.example.my.simida.ui.LoginActivity;
+import com.example.my.simida.ui.ShopDataActivity;
 
 
 /**
@@ -13,13 +15,11 @@ import com.example.my.simida.MainActivity;
 
 public class UIManager {
     //用法 Eq:
-    public static void startMain(
-            Context _context, int _code,
-            String _name) {
+    public static void startShopData(Context _context, int _shopid) {
         Intent intent = new Intent();
-        intent.setClass(_context, MainActivity.class);
-        intent.putExtra("code", _code);
-        intent.putExtra("name", _name);
+        intent.setClass(_context, ShopDataActivity.class);
+        intent.putExtra("shopid", _shopid);
         _context.startActivity(intent);
     }
+
 }

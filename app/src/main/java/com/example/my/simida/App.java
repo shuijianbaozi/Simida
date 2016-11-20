@@ -14,4 +14,9 @@ public class App extends Application {
         super.onCreate();
         mApp = this;
     }
+    public static String getFinalUrl(String imgUrl, int length, int width) {
+        imgUrl = imgUrl.replace("${width}", "" + width);
+        imgUrl = imgUrl.replace("${height}", "" + length);
+        return imgUrl;
+    }
 }

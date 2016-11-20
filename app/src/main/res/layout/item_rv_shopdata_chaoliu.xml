@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="250dp"
+    android:layout_height="250dp"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/iv_shop_chaoliu"
+        android:layout_width="250dp"
+        android:layout_height="250dp" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/tv_shop_chaoliu_price"
+            android:layout_width="70dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="30dp"
+            android:text="￥371.23"
+            android:textColor="@color/pink"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/tv_shop_chaoliu_name"
+            android:layout_width="150dp"
+            android:layout_height="25dp"
+            android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:layout_marginBottom="55dp"
+            android:gravity="center"
+            android:text="翻领短款毛呢杰克"
+            android:textColor="@color/white"
+            android:textSize="20sp" />
+    </RelativeLayout>
+</FrameLayout>

@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/activity_shop_data"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.example.my.simida.ui.ShopDataActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_scrollFlags="scroll">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:src="@drawable/daye" />
+
+            <android.support.v7.widget.Toolbar
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:background="#33ffffff">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/shopdata_back" />
+
+                    <TextView
+                        android:id="@+id/iv_shopdata_toolbar_name"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="LOVEMM"
+                        android:textColor="@color/black"
+                        android:textSize="20sp"
+                        android:textStyle="italic|bold" />
+
+                    <ImageView
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@mipmap/brandmain_btn_cat" />
+                </LinearLayout>
+            </android.support.v7.widget.Toolbar>
+
+            <LinearLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="80dp"
+                    android:layout_marginTop="60dp"
+                    android:background="#33ff0000">
+
+                    <ImageView
+                        android:id="@+id/iv_shopdata_top_logo"
+                        android:layout_width="80dp"
+                        android:layout_height="80dp"
+                        android:layout_marginLeft="30dp"
+                        android:src="@mipmap/ic_launcher" />
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:background="#33ff0ff0"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:id="@+id/tv_shopdata_top_spname"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:text="MODELAMI"
+                            android:textColor="@color/white"
+                            android:textSize="20sp"
+                            android:textStyle="bold" />
+
+                        <TextView
+                            android:id="@+id/tv_shopdata_style"
+                            android:layout_width="match_parent"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#77ffffff"
+                            android:text="童装"
+                            android:textColor="@color/black"
+                            android:textSize="17sp" />
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="20dp"
+                            android:layout_marginTop="10dp"
+                            android:background="#44668811"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:text="粉丝"
+                                android:textColor="#77ffffff"
+                                android:textSize="17sp" />
+
+                            <TextView
+                                android:id="@+id/tv_shopdata_subcnt"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="3dp"
+                                android:text="23"
+                                android:textColor="@color/white"
+                                android:textSize="16sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginLeft="10dp"
+                                android:text="平均发货"
+                                android:textColor="#77ffffff"
+                                android:textSize="17sp" />
+
+                            <TextView
+                                android:id="@+id/tv_shopdata_avrdate"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="2"
+                                android:textColor="@color/white"
+                                android:textSize="17sp" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="个工作日"
+                                android:textColor="#77ffffff"
+                                android:textSize="17sp" />
+                        </LinearLayout>
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginRight="30dp"
+                    android:layout_marginTop="4dp"
+                    android:background="#88ff33ff"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/tv_shopdata_pinpai"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="66  品牌简介"
+                        android:textColor="@color/white"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="4dp"
+                        android:layout_height="match_parent" />
+
+                    <TextView
+                        android:id="@+id/tv_shopdata_care"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:text="+  关注"
+                        android:textColor="@color/white"
+                        android:textSize="18sp" />
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:background="#33808080">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@color/white" />
+
+                    <TextView
+                        android:layout_width="45dp"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        android:background="@mipmap/serch_shopdata" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="47dp"
+                        android:gravity="center"
+                        android:text="店内商品搜索"
+                        android:textColor="@color/gray"
+                        android:textSize="20sp" />
+                </FrameLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:background="@color/white"
+                    android:text="潮流趋势 抢先知"
+                    android:textColor="#77ff1111"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_shopdata_chaoliu"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="#88888888" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text="人气商品 绝对好评的人气商品在这里"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_shopdata_reqi"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="20dp"
+                    android:text="买手推荐 针织衫的季节"
+                    android:textSize="20sp"
+                    android:textStyle="bold|italic" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/rv_shopdata_maishou"
+                    android:layout_width="match_parent"
+                    android:layout_height="205dp" />
+            </LinearLayout>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v7.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+</android.support.design.widget.CoordinatorLayout>

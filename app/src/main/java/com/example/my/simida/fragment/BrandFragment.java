@@ -38,9 +38,11 @@ import com.example.my.simida.fragment.brandfragment.NvshenFragment;
 import com.example.my.simida.fragment.brandfragment.RexiaoFragment;
 import com.example.my.simida.fragment.brandfragment.YifaFragment;
 import com.example.my.simida.http.HttpUtils;
+import com.example.my.simida.utils.UIManager;
 import com.example.my.simida.wiget.MyItemAnimator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import butterknife.BindView;
@@ -52,7 +54,7 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BrandFragment extends BaseFragment implements IRvOnItemClickListener {
+public class BrandFragment extends BaseFragment implements IRvOnItemClickListener, View.OnClickListener {
     @BindView(R.id.iv_brand_top)
     ImageView ivBrandTop;
     @BindView(R.id.tv_brandframgment_jingxuan)
@@ -137,12 +139,23 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         initRecycleSb();
         initRecycleList();
         getJson();
-
+        initeframelayout();
         return view;
     }
 
-    private void initTextlist() {
+    private void initeframelayout() {
 
+    }
+
+    /**
+     * 增加 text 点击监听
+     */
+    private void initTextlist() {
+        tvFbAll.setOnClickListener(this);
+        tvFbChild.setOnClickListener(this);
+        tvFbNanzhuang.setOnClickListener(this);
+        tvFbNvzhaung.setOnClickListener(this);
+        tvFbShoes.setOnClickListener(this);
     }
 
     private void initRecycleList() {
@@ -250,6 +263,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         String logoImg = mlistNews.get(0).getLogoImg();
         String leftTvUrl = getFinalUrl(logoImg, 600, 200);
         Glide.with(mContext).load(leftTvUrl).into(ivFbJingLeft);
+        tvFbJingLeft.setOnClickListener(this);
 //中间图像及右边图像
 //       tvFbJingCenter,ivFbJingCenter;
         String bannerImg1 = mlistOther.get(0).getBannerImg();
@@ -258,6 +272,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         String logoImg1 = mlistOther.get(0).getLogoImg();
         String leftTvUrl1 = getFinalUrl(logoImg1, 600, 200);
         Glide.with(mContext).load(leftTvUrl1).into(ivFbJingCenter);
+        tvFbJingCenter.setOnClickListener(this);
 
         String bannerImg2 = mlistOther.get(1).getBannerImg();
         String leftIvUrl2 = getFinalUrl(bannerImg2, 600, 900);
@@ -265,6 +280,8 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         String logoImg2 = mlistOther.get(1).getLogoImg();
         String leftTvUrl2 = getFinalUrl(logoImg2, 600, 200);
         Glide.with(mContext).load(leftTvUrl1).into(ivFbJingRight);
+        tvFbJingRight.setOnClickListener(this);
+
     }
 
     /**
@@ -331,5 +348,49 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     @Override
     public void onItemLongClick(int position) {
 
+    }
+
+    /**
+     * textView 的点击事件
+     *
+     * @param view
+     */
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.tv_fb_all:
+                listChange(mlistLists);
+                break;
+            case R.id.tv_fb_child:
+                listChange(mlistLists);
+                break;
+            case R.id.tv_fb_nanzhuang:
+                listChange(mlistLists);
+                break;
+            case R.id.tv_fb_nvzhaung:
+                listChange(mlistLists);
+                break;
+            case R.id.tv_fb_shoes:
+                listChange(mlistLists);
+                break;
+            case R.id.tv_fb_jing_left:
+                UIManager.startShopData(mContext,mlistNews.get(0).getShopNo());
+                break;
+            case R.id.tv_fb_jing_center:
+                break;
+            case R.id.tv_fb_jing_right:
+                break;
+        }
+    }
+
+    /**
+     * 让集合随机重组
+     *
+     * @param mlistLists
+     */
+    public void listChange(List mlistLists) {
+
+        Collections.shuffle(mlistLists);
+        mRvListAdapter.notifyDataSetChanged();
     }
 }
