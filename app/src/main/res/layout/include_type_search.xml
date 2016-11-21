@@ -17,6 +17,7 @@
             android:orientation="vertical">
 
             // 搜索栏
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="55dp"
@@ -31,7 +32,6 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:background="@mipmap/start_position"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center"
@@ -124,12 +124,14 @@
                 android:id="@+id/Type_recyclerViewSearchKey"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
 
             //女装
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -153,16 +155,19 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RV_Type_female"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
 
             //鞋包配饰
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -186,15 +191,18 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RV_Type_accessory"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
             //男装
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -218,15 +226,18 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/RV_Type_male"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
             //婴幼儿
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -250,12 +261,18 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rv_type_baby"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center_horizontal"
+                android:src="@drawable/ic_default_logo" />
         </LinearLayout>
+
     </ScrollView>
-
-
 </LinearLayout>

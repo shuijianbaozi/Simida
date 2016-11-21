@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/white"
     tools:context="com.example.my.simida.ui.LoginActivity">
 
     <!--登录-->
@@ -34,6 +35,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:background="#fff"
+            android:textSize="18sp"
             android:text="@string/register" />
 
 
@@ -48,28 +50,24 @@
         android:orientation="vertical">
 
         <EditText
+            android:layout_marginTop="30dp"
             android:id="@+id/username"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/usernameHint" />
 
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:background="@color/grey" />
-
         <EditText
             android:id="@+id/psw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:hint="@string/passwordHint" />
 
         <Button
             android:id="@+id/login_btn"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="30dp"
             android:background="@drawable/btn_login"
             android:text="@string/login"
             android:textColor="@color/white"
@@ -96,6 +94,7 @@
 
         <!--第三方登录-->
         <LinearLayout
+            android:layout_marginTop="30dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
