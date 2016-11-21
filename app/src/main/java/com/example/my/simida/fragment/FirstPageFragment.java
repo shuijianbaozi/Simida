@@ -120,7 +120,7 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         mTextView1_header3 = (TextView) view.findViewById(R.id.firstpage_header1_collection_talk_cnt);
         mTextView2_header3 = (TextView) view.findViewById(R.id.firstpage_header2_collection_talk_cnt);
         mTextView3_header3 = (TextView) view.findViewById(R.id.firstpage_header3_collection_talk_cnt);
-
+//        mRecyclerView2.setOnScrollListener();
     }
 
 
