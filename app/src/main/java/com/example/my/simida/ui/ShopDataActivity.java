@@ -3,7 +3,6 @@ package com.example.my.simida.ui;
 import android.content.Context;
 import android.os.Bundle;
 import android.support.design.widget.CoordinatorLayout;
-import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.OrientationHelper;
 import android.support.v7.widget.RecyclerView;
@@ -13,12 +12,14 @@ import android.widget.TextView;
 
 import com.example.my.simida.R;
 import com.example.my.simida.base.BaseActivity;
+import com.example.my.simida.bean.brandfragment.ShopListBean;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.MdPrdListBean;
 import com.example.my.simida.bean.shopdata.MdRecommandBean;
 import com.example.my.simida.bean.shopdata.PopPrdListBean;
 import com.example.my.simida.bean.shopdata.ShopBean;
 import com.example.my.simida.bean.shopdata.ShopDataBean;
+import com.example.my.simida.bean.shopdata.ShopPrdListBean;
 import com.example.my.simida.http.HttpUtils;
 import com.example.my.simida.ui.adapter.RvChaoliuAdapter;
 
@@ -58,12 +59,15 @@ public class ShopDataActivity extends BaseActivity {
     @BindView(R.id.activity_shop_data)
     CoordinatorLayout activityShopData;
     RvChaoliuAdapter mChaoliuAdapter;
+    @BindView(R.id.rv_shopdata_list)
+    RecyclerView rvShopdataList;
     private Context mContext = this;
     private List<HotTrendListBean> mHotTrendListBeens = new ArrayList<>();
     private List<MdPrdListBean> mMdPrdListBean = new ArrayList<>();
     private List<MdRecommandBean> mMdRecommandBeen = new ArrayList<>();
     private List<ShopBean> mShopBean = new ArrayList<>();
     private List<PopPrdListBean> mPoprdListBean = new ArrayList<>();
+    private List<ShopPrdListBean> mShopPrdListBean = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +83,15 @@ public class ShopDataActivity extends BaseActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 1, OrientationHelper.HORIZONTAL, false);
         rvShopdataChaoliu.setAdapter(mChaoliuAdapter);
         rvShopdataChaoliu.setLayoutManager(gridLayoutManager);
+        //人气
+//        rvShopdataReqi.setAdapter();
+//        rvShopdataReqi.setLayoutManager();
+        //买手推荐
+//        rvShopdataMaishou.setAdapter();
+//        rvShopdataMaishou.setLayoutManager();
+        //商店列表
+
+
     }
 
     private void getJson() {
@@ -99,13 +112,31 @@ public class ShopDataActivity extends BaseActivity {
 
                     @Override
                     public void onNext(ShopDataBean shopDataBean) {
-                        List<HotTrendListBean> hotTrendList = shopDataBean.getResult().getHotTrendList();
-                        mHotTrendListBeens.addAll(hotTrendList);
-                        mChaoliuAdapter.notifyDataSetChanged();
+                        getList(shopDataBean);
                     }
                 });
 
 
+    }
+
+    private void getList(ShopDataBean shopDataBean) {
+        //潮流
+        List<HotTrendListBean> hotTrendList = shopDataBean.getResult().getHotTrendList();
+        mHotTrendListBeens.addAll(hotTrendList);
+        //人气
+        List<PopPrdListBean> popPrdListBeen = shopDataBean.getResult().getPopPrdList();
+        mPoprdListBean.addAll(popPrdListBeen);
+        //买手
+        List<MdPrdListBean> mdPrdList = shopDataBean.getResult().getMdRecommand().getMdPrdList();
+        mMdPrdListBean.addAll(mdPrdList);
+        //列表
+        List<ShopPrdListBean> shopPrdList = shopDataBean.getResult().getShopPrdList();
+        mShopPrdListBean.addAll(shopPrdList);
+        //商店列表
+        ShopBean shop = shopDataBean.getResult().getShop();
+        mShopBean.add(shop);
+
+        mChaoliuAdapter.notifyDataSetChanged();
     }
 
 
