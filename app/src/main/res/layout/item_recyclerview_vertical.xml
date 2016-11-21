@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <ImageView
+        android:background="@mipmap/start_position"
         android:id="@+id/firstpage_recyclerview2_image_rep"
         android:padding="5dp"
         android:layout_width="200dp"
@@ -19,6 +20,7 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:background="@mipmap/start_position"
             android:id="@+id/firstpage_recyclerview2_logo"
             android:layout_marginLeft="5dp"
             android:layout_width="30dp"

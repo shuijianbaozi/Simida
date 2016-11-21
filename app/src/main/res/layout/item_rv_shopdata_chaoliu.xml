@@ -5,6 +5,7 @@
     android:orientation="vertical">
 
     <ImageView
+        android:background="@mipmap/start_position"
         android:id="@+id/iv_shop_chaoliu"
         android:layout_width="250dp"
         android:layout_height="250dp" />
