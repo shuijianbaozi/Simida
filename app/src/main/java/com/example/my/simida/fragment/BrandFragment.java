@@ -258,27 +258,27 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private void initJingxuan() {
 //        左侧图形
         String bannerImg = mlistNews.get(0).getBannerImg();
-        String leftIvUrl = getFinalUrl(bannerImg, 600, 900);
+        String leftIvUrl = getFinalUrl(bannerImg, 96, 96);
         Glide.with(mContext).load(leftIvUrl).into(tvFbJingLeft);
         String logoImg = mlistNews.get(0).getLogoImg();
-        String leftTvUrl = getFinalUrl(logoImg, 600, 200);
+        String leftTvUrl = getFinalUrl(logoImg, 96, 96);
         Glide.with(mContext).load(leftTvUrl).into(ivFbJingLeft);
         tvFbJingLeft.setOnClickListener(this);
 //中间图像及右边图像
 //       tvFbJingCenter,ivFbJingCenter;
         String bannerImg1 = mlistOther.get(0).getBannerImg();
-        String leftIvUrl1 = getFinalUrl(bannerImg1, 600, 900);
+        String leftIvUrl1 = getFinalUrl(bannerImg1, 96, 96);
         Glide.with(mContext).load(leftIvUrl1).into(tvFbJingCenter);
         String logoImg1 = mlistOther.get(0).getLogoImg();
-        String leftTvUrl1 = getFinalUrl(logoImg1, 600, 200);
+        String leftTvUrl1 = getFinalUrl(logoImg1, 96, 96);
         Glide.with(mContext).load(leftTvUrl1).into(ivFbJingCenter);
         tvFbJingCenter.setOnClickListener(this);
 
         String bannerImg2 = mlistOther.get(1).getBannerImg();
-        String leftIvUrl2 = getFinalUrl(bannerImg2, 600, 900);
+        String leftIvUrl2 = getFinalUrl(bannerImg2, 96, 96);
         Glide.with(mContext).load(leftIvUrl2).into(tvFbJingRight);
         String logoImg2 = mlistOther.get(1).getLogoImg();
-        String leftTvUrl2 = getFinalUrl(logoImg2, 600, 200);
+        String leftTvUrl2 = getFinalUrl(logoImg2, 96, 96);
         Glide.with(mContext).load(leftTvUrl1).into(ivFbJingRight);
         tvFbJingRight.setOnClickListener(this);
 
@@ -290,7 +290,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private void initTop() {
         String bannerImg = mlistBanners.get(1).getBannerImg();
 //        Log.e("change1", "" + bannerImg);
-        bannerImg = getFinalUrl(bannerImg, 1000, 500);
+        bannerImg = getFinalUrl(bannerImg, 96, 96);
 //        Log.e("change2", "" + bannerImg);
         Glide.with(mContext).load(bannerImg).into(ivBrandTop);
     }

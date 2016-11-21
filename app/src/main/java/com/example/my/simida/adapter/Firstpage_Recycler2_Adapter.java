@@ -48,7 +48,7 @@ public class Firstpage_Recycler2_Adapter extends RecyclerViewAdapterHelper<MdPic
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final Firstpage_Recycler2_Adapter.MyViewHolder holder2= (Firstpage_Recycler2_Adapter.MyViewHolder) holder;
         MdPickBean.MdPickListBean mdPickListBean = mList.get(position);
-        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getRepImgUrl(),200,200)).into(holder2.imageView_rep);
+        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getRepImgUrl(),150,150)).into(holder2.imageView_rep);
         Glide.with(mContext).load(getFinalUrl(mdPickListBean.getBrandLogo(),50,25)).into(holder2.imageView_logo);
         holder2.textView_likecnt.setText(mdPickListBean.getLikeCnt()+"");
 

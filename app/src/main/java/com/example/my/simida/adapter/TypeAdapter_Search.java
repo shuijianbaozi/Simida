@@ -46,7 +46,7 @@ public class TypeAdapter_Search extends RecyclerViewAdapterHelper<RecommendStyle
         SViewHolder viewholder = (SViewHolder) holder;
         final RecommendStyleBean.ListBean listBean = mList.get(position);
         Glide.with(mContext)
-                .load(getFinalUrl(listBean.getRepImgUrl(),300,200))
+                .load(getFinalUrl(listBean.getRepImgUrl(),96,96))
                 .into(viewholder.imageView);
         viewholder.textView.setText(listBean.getRecKeyword());
         viewholder.imageView.setOnClickListener(new View.OnClickListener() {

@@ -38,7 +38,7 @@ public class BrandRecycleSbAdapter extends RecyclerViewAdapterHelper<RecommendBe
 
         final RecommendBean.BrandListBean brandListBean = mList.get(position);
         Log.e("brandList",""+brandListBean.getLogoImg());
-        Glide.with(mContext).load(getFinalUrl(brandListBean.getLogoImg(),800,400)).into(viewHolder.imageView);
+        Glide.with(mContext).load(getFinalUrl(brandListBean.getLogoImg(),96,96)).into(viewHolder.imageView);
         viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

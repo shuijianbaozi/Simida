@@ -50,7 +50,7 @@ public class Firstpage_Recycler1_Adapter extends RecyclerViewAdapterHelper<Style
         final MyViewHolder holder1= (MyViewHolder) holder;
         StylePickBean stylePickBean = mList.get(position);
 //        Glide.with(mContext).load(getFinalUrl(stylePickBean.getRepImgUrl(),200,200)).into(holder1.imageView);
-        Glide.with(mContext).load(getFinalUrl(stylePickBean.getRepImgUrl(),200,200)).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder1.imageView) {
+        Glide.with(mContext).load(getFinalUrl(stylePickBean.getRepImgUrl(),96,96)).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder1.imageView) {
             @Override
             protected void setResource(Bitmap resource) {
                 RoundedBitmapDrawable circularBitmapDrawable =

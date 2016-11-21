@@ -50,37 +50,37 @@ public class NvshenRvAdapter extends RecyclerViewAdapterHelper<RankingBean> {
             case "chaoren":
                 list = mList.get(2).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenLeft);
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 400, 100)).into(viewHolder.ivFbNvshenLogo);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list1 = mList.get(3).getList();
-                Glide.with(mContext).load(getFinalUrl(list1.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenRight);
+                Glide.with(mContext).load(getFinalUrl(list1.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
 
                 break;
             case "rexiao":
                 list = mList.get(0).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenLeft);
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 400, 100)).into(viewHolder.ivFbNvshenLogo);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list2 = mList.get(1).getList();
-                Glide.with(mContext).load(getFinalUrl(list2.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenRight);
+                Glide.with(mContext).load(getFinalUrl(list2.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
 
                 break;
             case "yifa":
                 list = mList.get(1).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenLeft);
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 400, 100)).into(viewHolder.ivFbNvshenLogo);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96,96)).into(viewHolder.ivFbNvshenLeft);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list3 = mList.get(2).getList();
-                Glide.with(mContext).load(getFinalUrl(list3.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenRight);
+                Glide.with(mContext).load(getFinalUrl(list3.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
 
                 break;
             case "nvshen":
                 list = mList.get(3).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenLeft);
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 400, 100)).into(viewHolder.ivFbNvshenLogo);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list4 = mList.get(0).getList();
-                Glide.with(mContext).load(getFinalUrl(list4.get(position).getRankingImg(), 100, 100)).into(viewHolder.ivFbNvshenRight);
+                Glide.with(mContext).load(getFinalUrl(list4.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
                 break;
         }
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {

@@ -23,4 +23,9 @@ public class App extends Application {
         imgUrl = imgUrl.replace("${height}", "" + length);
         return imgUrl;
     }
+    public static String getFinalUrlNoDiy(String imgUrl) {
+        imgUrl = imgUrl.replace("${width}", "" + 96);
+        imgUrl = imgUrl.replace("${height}", "" + 96);
+        return imgUrl;
+    }
 }

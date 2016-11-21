@@ -48,7 +48,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
     public void onBindViewHolder(ViewHolder holder, final int position) {
         ListBean themeListBean = themeListBeen.get(position);
         Glide.with(mContext)
-                .load(getFinalUrl(themeListBean.getRepImgUrl(),500,500))
+                .load(getFinalUrl(themeListBean.getRepImgUrl(),96,96))
                 .into(holder.imageView);
 //        holder.imageView.setImageResource();
         holder.textView_a.setText(themeListBean.getTitle());

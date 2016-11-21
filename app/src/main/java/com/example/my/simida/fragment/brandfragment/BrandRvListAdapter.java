@@ -40,11 +40,11 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         viewholder.tv_fb_rvlist_bname.setText(listBean.getBrandNm());
         viewholder.tv_fb_rvlist_bdsc.setText(listBean.getNewBrandDesc());
         viewholder.tv_fb__rvlist_cnt.setText("粉丝： " + listBean.getSubsCnt());
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(0), 800, 800)).into(viewholder.iv_fb_rvlist_zs);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(1), 800, 800)).into(viewholder.iv_fb_rvlist_ys);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 800, 800)).into(viewholder.iv_fb_rvlist_zx);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 800, 800)).into(viewholder.iv_fb_rvlist_yx);
-        Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 500, 300)).into(viewholder.iv_fb_rvlist_logo);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(0), 96, 96)).into(viewholder.iv_fb_rvlist_zs);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(1), 96, 96)).into(viewholder.iv_fb_rvlist_ys);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 96, 96)).into(viewholder.iv_fb_rvlist_zx);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 96, 96)).into(viewholder.iv_fb_rvlist_yx);
+        Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 96,96)).into(viewholder.iv_fb_rvlist_logo);
     }
 
     class MyViewholder extends RecyclerView.ViewHolder {
