@@ -7,6 +7,16 @@
     android:background="@color/white"
     tools:context="com.example.my.simida.fragment.MyFragment">
 
+    <LinearLayout
+
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+
+    </LinearLayout>
+
     <android.support.design.widget.AppBarLayout
         android:id="@+id/appbarlayout_my"
         android:fitsSystemWindows="true"
@@ -47,12 +57,25 @@
                     android:layout_height="match_parent" />
 
                 <Button
+                    android:visibility="visible"
                     android:id="@+id/btn_start_my"
                     android:layout_below="@id/text_down_my"
                     android:layout_marginTop="20dp"
                     android:layout_centerHorizontal="true"
                     android:gravity="center"
                     android:background="@drawable/buttonstyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="35dp"
+                    android:text="@string/my_btn_start"
+                    android:textColor="@color/colorAccent"/>
+                <TextView
+                    android:background="@color/black"
+                    android:visibility="gone"
+                    android:id="@+id/tv_my_showinfo"
+                    android:layout_below="@id/text_down_my"
+                    android:layout_marginTop="20dp"
+                    android:layout_centerHorizontal="true"
+                    android:gravity="center"
                     android:layout_width="wrap_content"
                     android:layout_height="35dp"
                     android:text="@string/my_btn_start"
@@ -146,15 +169,5 @@
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
-
-    <LinearLayout
-
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-
-
-    </LinearLayout>
 
 </android.support.design.widget.CoordinatorLayout>

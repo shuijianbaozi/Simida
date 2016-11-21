@@ -12,6 +12,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.my.simida.R;
+import com.example.my.simida.base.BaseActivity;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.MdPrdListBean;
 import com.example.my.simida.bean.shopdata.MdRecommandBean;
@@ -30,7 +31,7 @@ import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
 
-public class ShopDataActivity extends AppCompatActivity {
+public class ShopDataActivity extends BaseActivity {
 
     @BindView(R.id.iv_shopdata_toolbar_name)
     TextView ivShopdataToolbarName;
