@@ -25,14 +25,14 @@ import java.util.List;
  * Created by My on 2016/11/17.
  */
 
-public class Firstpage_Recycler2_Adapter extends RecyclerViewAdapterHelper<MdPickBean.MdPickListBean>{
+public class Firstpage_XRecycler_Adapter extends RecyclerViewAdapterHelper<MdPickBean.MdPickListBean>{
 
     public interface IOnItemClickListener{
         void onItemClick(int position);
     }
-    private Firstpage_Recycler2_Adapter.IOnItemClickListener mOnItemClickListener=null;
+    private Firstpage_XRecycler_Adapter.IOnItemClickListener mOnItemClickListener=null;
 
-    public Firstpage_Recycler2_Adapter(Context context, List<MdPickBean.MdPickListBean> list, IOnItemClickListener mOnItemClickListener) {
+    public Firstpage_XRecycler_Adapter(Context context, List<MdPickBean.MdPickListBean> list, IOnItemClickListener mOnItemClickListener) {
         super(context, list);
         this.mOnItemClickListener = mOnItemClickListener;
     }
@@ -46,7 +46,7 @@ public class Firstpage_Recycler2_Adapter extends RecyclerViewAdapterHelper<MdPic
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        final Firstpage_Recycler2_Adapter.MyViewHolder holder2= (Firstpage_Recycler2_Adapter.MyViewHolder) holder;
+        final Firstpage_XRecycler_Adapter.MyViewHolder holder2= (Firstpage_XRecycler_Adapter.MyViewHolder) holder;
         MdPickBean.MdPickListBean mdPickListBean = mList.get(position);
         Glide.with(mContext).load(getFinalUrl(mdPickListBean.getRepImgUrl(),150,150)).into(holder2.imageView_rep);
         Glide.with(mContext).load(getFinalUrl(mdPickListBean.getBrandLogo(),50,25)).into(holder2.imageView_logo);

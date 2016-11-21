@@ -8,7 +8,7 @@
         android:background="@mipmap/firstpage_header_green"
         android:layout_margin="3dp"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -45,7 +45,7 @@
         android:background="@mipmap/firstpage_header_blue"
         android:layout_margin="3dp"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         android:background="@mipmap/firstpage_header_pink"
         android:layout_margin="3dp"
         android:layout_width="match_parent"
-        android:layout_height="80dp">
+        android:layout_height="100dp">
 
         <RelativeLayout
             android:layout_width="match_parent"

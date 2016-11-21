@@ -20,13 +20,14 @@ import android.view.ViewGroup.LayoutParams;
 
 import com.example.my.simida.R;
 import com.example.my.simida.adapter.Firstpage_Recycler1_Adapter;
-import com.example.my.simida.adapter.Firstpage_Recycler2_Adapter;
+import com.example.my.simida.adapter.Firstpage_XRecycler_Adapter;
 import com.example.my.simida.base.BaseFragment;
 import com.example.my.simida.bean.firstpagefragment.CountInfo;
 import com.example.my.simida.bean.firstpagefragment.MdPickBean;
 import com.example.my.simida.bean.firstpagefragment.StylePickBean;
 import com.example.my.simida.bean.firstpagefragment.TrendPickBean;
 import com.example.my.simida.http.HttpUtils;
+import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,15 +39,16 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstPageFragment extends BaseFragment implements Firstpage_Recycler1_Adapter.IOnItemClickListener,Firstpage_Recycler2_Adapter.IOnItemClickListener {
+public class FirstPageFragment extends BaseFragment implements Firstpage_Recycler1_Adapter.IOnItemClickListener,Firstpage_XRecycler_Adapter.IOnItemClickListener {
 
     //数据源
     private Context mContext = null;
-    private RecyclerView mRecyclerView1, mRecyclerView2;
+    private RecyclerView mRecyclerView1;
+    private XRecyclerView mXRecyclerView;
     private Firstpage_Recycler1_Adapter mFirstpage_recycler1_adapter = null;
-    private Firstpage_Recycler2_Adapter mFirstpage_recycler2_adapter = null;
+    private Firstpage_XRecycler_Adapter mFirstpage_xrecycler_adapter = null;
     private Firstpage_Recycler1_Adapter.IOnItemClickListener mIOnItemClickListener1;
-    private Firstpage_Recycler2_Adapter.IOnItemClickListener mIOnItemClickListener2;
+    private Firstpage_XRecycler_Adapter.IOnItemClickListener mIOnItemClickListener2;
 
     //集合
     private List<StylePickBean> mStylePickBeenList = new ArrayList<>();
@@ -72,9 +74,8 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
     }
-
-
 
     @Override
     public void onAttach(Context context) {
@@ -83,7 +84,6 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
     }
 
     @Nullable
-    @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_firstpage, container, false);
         return view;
@@ -93,10 +93,12 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //firstpage中第一个RecyclerView的控件及适配器
-        mImageView = (ImageView) view.findViewById(R.id.firstpage_recyclerview1_image);
-        mTextView1 = (TextView) view.findViewById(R.id.firstpage_recyclerview1_textview_stylename);
-        mTextView2 = (TextView) view.findViewById(R.id.firstpage_recyclerview1_textview_count);
-        mRecyclerView1 = (RecyclerView) view.findViewById(R.id.firstpage_recyclerview1);
+        LayoutInflater systemService = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+        View inflate = systemService.inflate(R.layout.item_firstpage_up,null,false);
+        mImageView = (ImageView) inflate.findViewById(R.id.firstpage_recyclerview1_image);
+        mTextView1 = (TextView) inflate.findViewById(R.id.firstpage_recyclerview1_textview_stylename);
+        mTextView2 = (TextView) inflate.findViewById(R.id.firstpage_recyclerview1_textview_count);
+        mRecyclerView1 = (RecyclerView) inflate.findViewById(R.id.firstpage_recyclerview1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView1.setLayoutManager(linearLayoutManager);
         mFirstpage_recycler1_adapter = new Firstpage_Recycler1_Adapter(mContext,mStylePickBeenList,mIOnItemClickListener1);
@@ -105,11 +107,13 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         mImageView_rep = (ImageView) view.findViewById(R.id.firstpage_recyclerview2_image_rep);
         mImageView_logo = (ImageView) view.findViewById(R.id.firstpage_recyclerview2_logo);
         mTextView_likecnt = (TextView) view.findViewById(R.id.firstpage_recyclerview2_likecnt);
-        mRecyclerView2 = (RecyclerView) view.findViewById(R.id.firstpage_recyclerview2);
+        mXRecyclerView = (XRecyclerView) view.findViewById(R.id.firstpage_xrecyclerview);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext,2, OrientationHelper.VERTICAL,false);
-        mRecyclerView2.setLayoutManager(gridLayoutManager);
-        mFirstpage_recycler2_adapter = new Firstpage_Recycler2_Adapter(mContext,mMdPickListBeanList,mIOnItemClickListener2);
-        mRecyclerView2.setAdapter(mFirstpage_recycler2_adapter);
+        mXRecyclerView.setLayoutManager(gridLayoutManager);
+        mFirstpage_xrecycler_adapter = new Firstpage_XRecycler_Adapter(mContext,mMdPickListBeanList,mIOnItemClickListener2);
+        mXRecyclerView.setAdapter(mFirstpage_xrecycler_adapter);
+        mXRecyclerView.addHeaderView(inflate);
+
         //header的控件
         mTextView1_header1 = (TextView) view.findViewById(R.id.firstpage_header1_text1);
         mTextView2_header1 = (TextView) view.findViewById(R.id.firstpage_header2_text1);
@@ -120,7 +124,6 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         mTextView1_header3 = (TextView) view.findViewById(R.id.firstpage_header1_collection_talk_cnt);
         mTextView2_header3 = (TextView) view.findViewById(R.id.firstpage_header2_collection_talk_cnt);
         mTextView3_header3 = (TextView) view.findViewById(R.id.firstpage_header3_collection_talk_cnt);
-//        mRecyclerView2.setOnScrollListener();
     }
 
 
@@ -187,7 +190,7 @@ public class FirstPageFragment extends BaseFragment implements Firstpage_Recycle
         List<MdPickBean.MdPickListBean> mdPickList = mdPick.getMdPickList();
         mMdPickListBeanList.clear();
         mMdPickListBeanList.addAll(mdPickList);
-        mFirstpage_recycler2_adapter.notifyDataSetChanged();
+        mFirstpage_xrecycler_adapter.notifyDataSetChanged();
     }
     private void getList3(CountInfo countInfo){
         List<TrendPickBean> trendPickBeen = countInfo.getResult().getTrendPick();
