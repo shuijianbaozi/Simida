@@ -23,8 +23,10 @@ import java.util.List;
 public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.ListBean> {
     public interface IOnBrandListClickListener {
         void onItemClick(int shopId);
-        void onGuanzhunClick(String goods);
-        void onPicClick (int position);
+
+        void onGuanzhunClick(int shopId);
+
+        void onPicClick(int position);
     }
 
     private IOnBrandListClickListener listener;
@@ -52,7 +54,37 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(1), 96, 96)).into(viewholder.iv_fb_rvlist_ys);
         Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 96, 96)).into(viewholder.iv_fb_rvlist_zx);
         Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 96, 96)).into(viewholder.iv_fb_rvlist_yx);
-        Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 96,96)).into(viewholder.iv_fb_rvlist_logo);
+        Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 96, 96)).into(viewholder.iv_fb_rvlist_logo);
+        viewholder.iv_fb_rvlist_ys.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onPicClick(listBean.getNewProductItems().get(0).getPrdNo());
+            }
+        });
+        viewholder.iv_fb_rvlist_yx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onPicClick(listBean.getNewProductItems().get(1).getPrdNo());
+            }
+        });
+        viewholder.iv_fb_rvlist_zs.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onPicClick(listBean.getNewProductItems().get(2).getPrdNo());
+            }
+        });
+        viewholder.iv_fb_rvlist_zx.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onPicClick(listBean.getNewProductItems().get(3).getPrdNo());
+            }
+        });
+        viewholder.btn_fb_rvlist.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onGuanzhunClick(listBean.getShopNo());
+            }
+        });
 
     }
 

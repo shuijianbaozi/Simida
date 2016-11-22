@@ -38,6 +38,7 @@ import com.example.my.simida.fragment.brandfragment.NvshenFragment;
 import com.example.my.simida.fragment.brandfragment.RexiaoFragment;
 import com.example.my.simida.fragment.brandfragment.YifaFragment;
 import com.example.my.simida.http.HttpUtils;
+import com.example.my.simida.utils.ToastUtils;
 import com.example.my.simida.utils.UIManager;
 import com.example.my.simida.wiget.MyItemAnimator;
 
@@ -108,6 +109,24 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private FragmentManager manager = null;
     private MypagerAdapter mypagerAdapter = null;
     private BrandRvListAdapter mRvListAdapter = null;
+    private BrandRvListAdapter.IOnBrandListClickListener listClickListener = new BrandRvListAdapter.IOnBrandListClickListener() {
+        @Override
+        public void onItemClick(int shopId) {
+            ToastUtils.showTost(mContext, "商店号为" + shopId);
+        }
+
+        @Override
+        public void onGuanzhunClick(int shopId) {
+
+            ToastUtils.showTost(mContext, "关注的商店号为" + shopId);
+        }
+
+        @Override
+        public void onPicClick(int position) {
+
+            ToastUtils.showTost(mContext, "物品号" + position);
+        }
+    };
 
     /**
      * context 赋值
@@ -160,7 +179,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
 
     private void initRecycleList() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, OrientationHelper.VERTICAL, false);
-        mRvListAdapter = new BrandRvListAdapter(mContext, mlistLists);
+        mRvListAdapter = new BrandRvListAdapter(mContext, mlistLists, listClickListener);
         rvFbList.setAdapter(mRvListAdapter);
         rvFbList.setLayoutManager(linearLayoutManager);
     }
