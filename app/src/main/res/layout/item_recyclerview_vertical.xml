@@ -15,7 +15,6 @@
     <LinearLayout
         android:layout_below="@id/firstpage_recyclerview2_image_rep"
         android:orientation="horizontal"
-        android:layout_marginTop="-12dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
@@ -23,21 +22,15 @@
             android:background="@mipmap/start_position"
             android:id="@+id/firstpage_recyclerview2_logo"
             android:layout_marginLeft="5dp"
-            android:layout_width="30dp"
+            android:scaleType="fitXY"
+            android:layout_width="wrap_content"
             android:layout_height="30dp" />
-
-        <!--<ImageView-->
-            <!--android:id="@+id/firstpage_recyclerview2_like"-->
-            <!--android:src="@mipmap/home_ic_like"-->
-            <!--android:layout_marginTop="5dp"-->
-            <!--android:paddingLeft="90dp"-->
-            <!--android:layout_width="wrap_content"-->
-            <!--android:layout_height="wrap_content" />-->
 
         <TextView
             android:id="@+id/firstpage_recyclerview2_likecnt"
             android:drawableLeft="@mipmap/home_ic_like"
-            android:layout_marginLeft="80dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="100dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content" />
     </LinearLayout>
