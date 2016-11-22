@@ -23,20 +23,20 @@ public class TypeAdapter_Search extends RecyclerViewAdapterHelper<RecommendStyle
 
 
     public interface ISearchOnItemClickListener {
-        void onItemClick(int shopId);
+        void onItemClick(String searchWord);
 
         void onItemLongClick(int position);
     }
 
     public TypeAdapter_Search(Context context, List<RecommendStyleBean.ListBean> list, ISearchOnItemClickListener listener) {
         super(context, list);
-        this.listener=listener;
+        this.listener = listener;
     }
 
     @Override
     public RecyclerView.ViewHolder onCreateMyViewHolder(ViewGroup parent, int viewType) {
 
-        View search = mInflater.inflate(R.layout.item_type_recyclerview_searchkey,parent,false);
+        View search = mInflater.inflate(R.layout.item_type_recyclerview_searchkey, parent, false);
         return new SViewHolder(search);
     }
 
@@ -46,19 +46,19 @@ public class TypeAdapter_Search extends RecyclerViewAdapterHelper<RecommendStyle
         SViewHolder viewholder = (SViewHolder) holder;
         final RecommendStyleBean.ListBean listBean = mList.get(position);
         Glide.with(mContext)
-                .load(getFinalUrl(listBean.getRepImgUrl(),96,96))
+                .load(getFinalUrl(listBean.getRepImgUrl(), 96, 96))
                 .into(viewholder.imageView);
         viewholder.textView.setText(listBean.getRecKeyword());
         viewholder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onItemClick(listBean.getRecWordNo());
+                listener.onItemClick(listBean.getSearchWord());
             }
         });
 
     }
 
-    class SViewHolder extends  RecyclerView.ViewHolder{
+    class SViewHolder extends RecyclerView.ViewHolder {
         ImageView imageView;
         TextView textView;
 
@@ -68,6 +68,7 @@ public class TypeAdapter_Search extends RecyclerViewAdapterHelper<RecommendStyle
             textView = (TextView) itemView.findViewById(R.id.Type_recyclerViewSearchText);
         }
     }
+
     private String getFinalUrl(String imgUrl, int length, int width) {
         imgUrl = imgUrl.replace("${width}", "" + width);
         imgUrl = imgUrl.replace("${height}", "" + length);

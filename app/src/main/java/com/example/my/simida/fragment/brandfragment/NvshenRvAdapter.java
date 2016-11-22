@@ -49,46 +49,65 @@ public class NvshenRvAdapter extends RecyclerViewAdapterHelper<RankingBean> {
         switch (flag) {
             case "chaoren":
                 list = mList.get(2).getList();
+                final List<RankingBean.ListBean> list11 = mList.get(2).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list1 = mList.get(3).getList();
                 Glide.with(mContext).load(getFinalUrl(list1.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
-
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemClick(list11.get(position).getShopNo());
+                    }
+                });
                 break;
             case "rexiao":
                 list = mList.get(0).getList();
+                final List<RankingBean.ListBean> list22 = mList.get(0).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list2 = mList.get(1).getList();
                 Glide.with(mContext).load(getFinalUrl(list2.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
-
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemClick(list22.get(position).getShopNo());
+                    }
+                });
                 break;
             case "yifa":
                 list = mList.get(1).getList();
+                final List<RankingBean.ListBean> list33 = mList.get(1).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
-                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96,96)).into(viewHolder.ivFbNvshenLeft);
+                Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list3 = mList.get(2).getList();
                 Glide.with(mContext).load(getFinalUrl(list3.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
-
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemClick(list33.get(position).getShopNo());
+                    }
+                });
                 break;
             case "nvshen":
                 list = mList.get(3).getList();
+                final List<RankingBean.ListBean> list44 = mList.get(3).getList();
                 viewHolder.tvFbNvshen.setText("0" + (position + 1));
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenLeft);
                 Glide.with(mContext).load(getFinalUrl(list.get(position).getLogoImg(), 96, 96)).into(viewHolder.ivFbNvshenLogo);
                 List<RankingBean.ListBean> list4 = mList.get(0).getList();
                 Glide.with(mContext).load(getFinalUrl(list4.get(position).getRankingImg(), 96, 96)).into(viewHolder.ivFbNvshenRight);
+                viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        listener.onItemClick(list44.get(position).getShopNo());
+                    }
+                });
                 break;
         }
-        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                listener.onItemClick(position, flag);
-            }
-        });
 
 
     }

@@ -55,7 +55,7 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class BrandFragment extends BaseFragment implements IRvOnItemClickListener, View.OnClickListener {
+public class BrandFragment extends BaseFragment implements View.OnClickListener {
     @BindView(R.id.iv_brand_top)
     ImageView ivBrandTop;
     @BindView(R.id.tv_brandframgment_jingxuan)
@@ -110,21 +110,36 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     private MypagerAdapter mypagerAdapter = null;
     private BrandRvListAdapter mRvListAdapter = null;
     private BrandRvListAdapter.IOnBrandListClickListener listClickListener = new BrandRvListAdapter.IOnBrandListClickListener() {
+
+
         @Override
-        public void onItemClick(int shopId) {
-            ToastUtils.showTost(mContext, "商店号为" + shopId);
+        public void onLongClick(int shopId) {
+            UIManager.startShopData(mContext, shopId);
         }
 
         @Override
-        public void onGuanzhunClick(int shopId) {
-
-            ToastUtils.showTost(mContext, "关注的商店号为" + shopId);
+        public void onGuanzhunClick(String shopName) {
+            ToastUtils.showTost(mContext, "亲 你已经关注了 " + shopName + " 了呦");
         }
 
+
+        //// TODO: 16/11/22 商品跳转
         @Override
         public void onPicClick(int position) {
 
             ToastUtils.showTost(mContext, "物品号" + position);
+        }
+    };
+
+    IRvOnItemClickListener itemClickListener = new IRvOnItemClickListener() {
+        @Override
+        public void onItemClick(int shopId) {
+            UIManager.startShopData(mContext, shopId);
+        }
+
+        @Override
+        public void onItemLongClick(int position) {
+
         }
     };
 
@@ -262,7 +277,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
     }
 
     private void initRecycleSb() {
-        adapter = new BrandRecycleSbAdapter(mContext, mlistrvsb, this);
+        adapter = new BrandRecycleSbAdapter(mContext, mlistrvsb, itemClickListener);
         GridLayoutManager manager = new GridLayoutManager(mContext, 3, OrientationHelper.VERTICAL, false);
         rvFbShangbiao.setAdapter(adapter);
         rvFbShangbiao.setLayoutManager(manager);
@@ -358,16 +373,6 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
 
     public List<RankingBean> getRankingBean() {
         return mlistRankings;
-    }
-
-    @Override
-    public void onItemClick(int shopId) {
-
-    }
-
-    @Override
-    public void onItemLongClick(int position) {
-
     }
 
     /**

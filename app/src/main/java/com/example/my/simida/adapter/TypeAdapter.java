@@ -23,7 +23,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
 
     //点击监听
     public interface IOnItemClickListener {
-        void onItemClick(int position);
+        void onItemClick(String params);
     }
 
     private Context mContext;
@@ -32,7 +32,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
 
 
     //有参构造方法
-    public TypeAdapter(Context mContext,  List<ListBean> themeListBeen, IOnItemClickListener onItemClickListener) {
+    public TypeAdapter(Context mContext, List<ListBean> themeListBeen, IOnItemClickListener onItemClickListener) {
         this.mContext = mContext;
         this.themeListBeen = themeListBeen;
         this.onItemClickListener = onItemClickListener;
@@ -46,9 +46,9 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        ListBean themeListBean = themeListBeen.get(position);
+        final ListBean themeListBean = themeListBeen.get(position);
         Glide.with(mContext)
-                .load(getFinalUrl(themeListBean.getRepImgUrl(),96,96))
+                .load(getFinalUrl(themeListBean.getRepImgUrl(), 96, 96))
                 .into(holder.imageView);
 //        holder.imageView.setImageResource();
         holder.textView_a.setText(themeListBean.getTitle());
@@ -56,7 +56,7 @@ public class TypeAdapter extends RecyclerView.Adapter<TypeAdapter.ViewHolder> {
         holder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                onItemClickListener.onItemClick(position);
+                onItemClickListener.onItemClick(themeListBean.getLinkObjParam());
             }
         });
     }

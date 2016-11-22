@@ -25,6 +25,7 @@ import com.example.my.simida.bean.typefragment.ListBean;
 import com.example.my.simida.bean.typefragment.RecommendStyleBean;
 import com.example.my.simida.bean.typefragment.TypeBean;
 import com.example.my.simida.http.HttpUtils;
+import com.example.my.simida.utils.UIManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -80,9 +81,10 @@ public class TypeFragment extends BaseFragment implements TypeAdapter.IOnItemCli
     private TypeAdapter_Female mTypeAdapter_four4;
 
     TypeAdapter_Search.ISearchOnItemClickListener mListener = new TypeAdapter_Search.ISearchOnItemClickListener() {
-        @Override
-        public void onItemClick(int shopId) {
 
+        @Override
+        public void onItemClick(String searchWord) {
+            UIManager.startSearch(mContext, searchWord);
         }
 
         @Override
@@ -93,9 +95,11 @@ public class TypeFragment extends BaseFragment implements TypeAdapter.IOnItemCli
 
 
     TypeAdapter_Female.IFemaleOnItemClickListener mFeListener = new TypeAdapter_Female.IFemaleOnItemClickListener() {
-        @Override
-        public void onItemClick(int cateId) {
 
+
+        @Override
+        public void onItemClick(String cateName) {
+            UIManager.startSearch(mContext, cateName);
         }
 
         @Override
@@ -245,15 +249,15 @@ public class TypeFragment extends BaseFragment implements TypeAdapter.IOnItemCli
                         //婴幼儿
                         List<CategoryListBean.ListBean> list5 = typeBean.getResult().getCategoryList().get(3).getList();
                         mCateListBean4.addAll(list5);
-                        Log.e("baby", "" + mCateListBean4.toString()+"\n");
+                        Log.e("baby", "" + mCateListBean4.toString() + "\n");
                         mTypeAdapter_four4.notifyDataSetChanged();
                     }
                 });
     }
 
+
     @Override
-    public void onItemClick(int position) {
-
+    public void onItemClick(String params) {
+        UIManager.startBaseSearch(mContext, params);
     }
-
 }

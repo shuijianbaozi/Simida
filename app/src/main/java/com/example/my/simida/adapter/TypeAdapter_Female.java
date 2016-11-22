@@ -30,7 +30,7 @@ public class TypeAdapter_Female extends RecyclerViewAdapterHelper<CategoryListBe
 
 
     public interface IFemaleOnItemClickListener {
-        void onItemClick(int cateId);
+        void onItemClick(String cateName);
 
         void onItemLongClick(int position);
     }
@@ -70,7 +70,7 @@ public class TypeAdapter_Female extends RecyclerViewAdapterHelper<CategoryListBe
                 femaleholder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(listBean.getCateGrpNo());
+                        listener.onItemClick(listBean.getCateNm());
                     }
                 });
                 break;
@@ -82,7 +82,7 @@ public class TypeAdapter_Female extends RecyclerViewAdapterHelper<CategoryListBe
                 accessoryViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(listBean.getCateGrpNo());
+                        listener.onItemClick(listBean.getCateNm());
                     }
                 });
                 break;
@@ -93,7 +93,7 @@ public class TypeAdapter_Female extends RecyclerViewAdapterHelper<CategoryListBe
                 maleViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(listBean.getCateGrpNo());
+                        listener.onItemClick(listBean.getCateNm());
                     }
                 });
                 break;
@@ -104,7 +104,7 @@ public class TypeAdapter_Female extends RecyclerViewAdapterHelper<CategoryListBe
                 babyViewHolder.imageView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        listener.onItemClick(listBean.getCateGrpNo());
+                        listener.onItemClick(listBean.getCateNm());
                     }
                 });
                 break;

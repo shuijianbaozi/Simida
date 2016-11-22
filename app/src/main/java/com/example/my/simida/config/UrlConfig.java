@@ -13,4 +13,8 @@ public class UrlConfig {
 
     //Typefragment     几个基本baseURL
     public static final String URL_BASE_TYPE = "http://www.thestylewish.com/asia/api/category/ctgTabData.do";
+
+    //Typeweb 的urlBase
+    public static final String TYPEWEB_BASEURL = "http://www.thestylewish.com/asia/html/mw/searchlist.html?keyword=";
+    public static final String TYPEWEB_BASE = "http://www.thestylewish.com/asia/html/mw/searchlist.html?";
 }

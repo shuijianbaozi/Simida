@@ -5,7 +5,7 @@ package com.example.my.simida.fragment.brandfragment;
  */
 
 public interface IOnNvshenRvClick {
-        void onItemClick(int positon,String s);
+        void onItemClick(int shopid);
 
         void onItemLongClick(int position);
 

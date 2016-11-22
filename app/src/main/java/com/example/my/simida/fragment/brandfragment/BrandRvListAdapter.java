@@ -22,9 +22,9 @@ import java.util.List;
 
 public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.ListBean> {
     public interface IOnBrandListClickListener {
-        void onItemClick(int shopId);
+        void onLongClick(int shopId);
 
-        void onGuanzhunClick(int shopId);
+        void onGuanzhunClick(String shopName);
 
         void onPicClick(int position);
     }
@@ -50,10 +50,10 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         viewholder.tv_fb_rvlist_bname.setText(listBean.getBrandNm());
         viewholder.tv_fb_rvlist_bdsc.setText(listBean.getNewBrandDesc());
         viewholder.tv_fb__rvlist_cnt.setText("粉丝： " + listBean.getSubsCnt());
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(0), 96, 96)).into(viewholder.iv_fb_rvlist_zs);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(1), 96, 96)).into(viewholder.iv_fb_rvlist_ys);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 96, 96)).into(viewholder.iv_fb_rvlist_zx);
-        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 96, 96)).into(viewholder.iv_fb_rvlist_yx);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(0), 190, 160)).into(viewholder.iv_fb_rvlist_zs);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(1), 190, 160)).into(viewholder.iv_fb_rvlist_ys);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 190, 160)).into(viewholder.iv_fb_rvlist_zx);
+        Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 190, 160)).into(viewholder.iv_fb_rvlist_yx);
         Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 96, 96)).into(viewholder.iv_fb_rvlist_logo);
         viewholder.iv_fb_rvlist_ys.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -82,7 +82,15 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         viewholder.btn_fb_rvlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onGuanzhunClick(listBean.getShopNo());
+                listener.onGuanzhunClick(listBean.getBrandNm());
+            }
+        });
+        viewholder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
+
+            @Override
+            public boolean onLongClick(View view) {
+                listener.onLongClick(listBean.getShopNo());
+                return true;
             }
         });
 

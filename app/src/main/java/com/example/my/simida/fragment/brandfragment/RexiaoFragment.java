@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.my.simida.R;
 import com.example.my.simida.bean.brandfragment.RankingBean;
 import com.example.my.simida.fragment.BrandFragment;
+import com.example.my.simida.utils.UIManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -76,8 +77,10 @@ public class RexiaoFragment extends Fragment implements IOnNvshenRvClick{
         super.onDetach();
     }
 
+
     @Override
-    public void onItemClick(int positon, String s) {
+    public void onItemClick(int shopid) {
+        UIManager.startShopData(mContext, shopid);
 
     }
 

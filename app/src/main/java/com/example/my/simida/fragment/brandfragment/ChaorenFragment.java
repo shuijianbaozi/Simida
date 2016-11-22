@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import com.example.my.simida.R;
 import com.example.my.simida.bean.brandfragment.RankingBean;
 import com.example.my.simida.fragment.BrandFragment;
+import com.example.my.simida.utils.UIManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ChaorenFragment extends Fragment implements IOnNvshenRvClick{
+public class ChaorenFragment extends Fragment implements IOnNvshenRvClick {
 
 
     @BindView(R.id.rv_chaoren)
@@ -80,9 +81,10 @@ public class ChaorenFragment extends Fragment implements IOnNvshenRvClick{
         super.onDetach();
     }
 
-    @Override
-    public void onItemClick(int positon, String s) {
 
+    @Override
+    public void onItemClick(int shopid) {
+        UIManager.startShopData(mContext, shopid);
     }
 
     @Override
