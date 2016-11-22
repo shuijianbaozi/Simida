@@ -21,9 +21,17 @@ import java.util.List;
  */
 
 public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.ListBean> {
+    public interface IOnBrandListClickListener {
+        void onItemClick(int shopId);
+        void onGuanzhunClick(String goods);
+        void onPicClick (int position);
+    }
 
-    public BrandRvListAdapter(Context context, List<ShopListBean.ListBean> list) {
+    private IOnBrandListClickListener listener;
+
+    public BrandRvListAdapter(Context context, List<ShopListBean.ListBean> list, IOnBrandListClickListener listener) {
         super(context, list);
+        this.listener = listener;
     }
 
     @Override
@@ -34,7 +42,7 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ShopListBean.ListBean listBean = mList.get(position);
+        final ShopListBean.ListBean listBean = mList.get(position);
         MyViewholder viewholder = (MyViewholder) holder;
         viewholder.up_cnd.setText(listBean.getUpPrdCnt() + "");
         viewholder.tv_fb_rvlist_bname.setText(listBean.getBrandNm());
@@ -45,6 +53,7 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(2), 96, 96)).into(viewholder.iv_fb_rvlist_zx);
         Glide.with(mContext).load(UrlConfig.URL_BRAND_RVLIST_BASE + getFinalUrl(listBean.getAddImg().get(3), 96, 96)).into(viewholder.iv_fb_rvlist_yx);
         Glide.with(mContext).load(getFinalUrl(listBean.getLogoImg(), 96,96)).into(viewholder.iv_fb_rvlist_logo);
+
     }
 
     class MyViewholder extends RecyclerView.ViewHolder {

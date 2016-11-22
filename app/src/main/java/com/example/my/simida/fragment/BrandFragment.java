@@ -184,10 +184,11 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
 
                     @Override
                     public void onNext(BrandBean brandBean) {
-                        Log.e("BrandFragment", "" + brandBean.getResult().getRanking().size());
+//                        Log.e("BrandFragment", "" + brandBean.getResult().getRanking().size());
                         getList(brandBean);
                         initTubiao();
                         initView();
+
                     }
                 });
     }
@@ -201,7 +202,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
 //            Log.e("num------>", "" + num);
             RecommendBean.BrandListBean brandListBean = mlistBrands.get(num);
             mlistrvsb.add(brandListBean);
-//            Log.e("mlistrvsb.size", "" + mlistrvsb.size());
+            Log.e("mlistrvsb.size", "" + mlistrvsb.size());
             int shopNo = mlistrvsb.get(0).getShopNo();
 //            Log.e("qq", mlistrvsb.get(0).getShopNo() + "");
         }
@@ -257,13 +258,13 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
      */
     private void initJingxuan() {
 //        左侧图形
-        String bannerImg = mlistNews.get(0).getBannerImg();
-        String leftIvUrl = getFinalUrl(bannerImg, 96, 96);
-        Glide.with(mContext).load(leftIvUrl).into(tvFbJingLeft);
-        String logoImg = mlistNews.get(0).getLogoImg();
-        String leftTvUrl = getFinalUrl(logoImg, 96, 96);
-        Glide.with(mContext).load(leftTvUrl).into(ivFbJingLeft);
-        tvFbJingLeft.setOnClickListener(this);
+        String bannerImg0 = mlistOther.get(2).getBannerImg();
+        String leftIvUrl0 = getFinalUrl(bannerImg0, 96, 96);
+        Glide.with(mContext).load(leftIvUrl0).into(tvFbJingLeft);
+        String logoImg0 = mlistOther.get(2).getLogoImg();
+        String leftTvUrl0 = getFinalUrl(logoImg0, 96, 96);
+        Glide.with(mContext).load(leftTvUrl0).into(ivFbJingLeft);
+        ivFbJingLeft.setOnClickListener(this);
 //中间图像及右边图像
 //       tvFbJingCenter,ivFbJingCenter;
         String bannerImg1 = mlistOther.get(0).getBannerImg();
@@ -279,7 +280,7 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
         Glide.with(mContext).load(leftIvUrl2).into(tvFbJingRight);
         String logoImg2 = mlistOther.get(1).getLogoImg();
         String leftTvUrl2 = getFinalUrl(logoImg2, 96, 96);
-        Glide.with(mContext).load(leftTvUrl1).into(ivFbJingRight);
+        Glide.with(mContext).load(leftTvUrl2).into(ivFbJingRight);
         tvFbJingRight.setOnClickListener(this);
 
     }
@@ -289,8 +290,8 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
      */
     private void initTop() {
         String bannerImg = mlistBanners.get(1).getBannerImg();
-//        Log.e("change1", "" + bannerImg);
-        bannerImg = getFinalUrl(bannerImg, 96, 96);
+        Log.e("change1", "" + bannerImg);
+        bannerImg = getFinalUrl(bannerImg, 400, 400);
 //        Log.e("change2", "" + bannerImg);
         Glide.with(mContext).load(bannerImg).into(ivBrandTop);
     }
@@ -374,11 +375,15 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
                 listChange(mlistLists);
                 break;
             case R.id.tv_fb_jing_left:
-                UIManager.startShopData(mContext,mlistNews.get(0).getShopNo());
+                UIManager.startShopData(mContext, mlistOther.get(2).getShopNo());
                 break;
             case R.id.tv_fb_jing_center:
+                int shopNo = mlistOther.get(0).getShopNo();
+                Log.e("shopNo", "" + shopNo);
+                UIManager.startShopData(mContext, mlistOther.get(0).getShopNo());
                 break;
             case R.id.tv_fb_jing_right:
+                UIManager.startShopData(mContext, mlistOther.get(1).getShopNo());
                 break;
         }
     }
@@ -389,7 +394,6 @@ public class BrandFragment extends BaseFragment implements IRvOnItemClickListene
      * @param mlistLists
      */
     public void listChange(List mlistLists) {
-
         Collections.shuffle(mlistLists);
         mRvListAdapter.notifyDataSetChanged();
     }
