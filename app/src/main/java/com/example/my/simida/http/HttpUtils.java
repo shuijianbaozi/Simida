@@ -1,6 +1,7 @@
 package com.example.my.simida.http;
 
 import com.example.my.simida.bean.brandfragment.BrandBean;
+import com.example.my.simida.bean.findfragment.FindBean;
 import com.example.my.simida.bean.firstpagefragment.CountInfo;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.ShopDataBean;
@@ -10,6 +11,8 @@ import com.example.my.simida.config.UrlConfig;
 import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava.RxJavaCallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
+import retrofit2.http.GET;
+import retrofit2.http.Url;
 import rx.Observable;
 
 /**
@@ -65,6 +68,11 @@ public class HttpUtils {
 
     public Observable<ShopDataBean> getShopDataBean(String brandurl) {
         return mApi.getShopDataBean(brandurl);
+    }
+
+
+    public Observable<FindBean> getFindBean(String url) {
+        return mApi.getFindBean(url);
     }
 
 }

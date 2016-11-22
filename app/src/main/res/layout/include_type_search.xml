@@ -16,7 +16,7 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            // 搜索栏
+             <!--搜索栏-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -56,7 +56,7 @@
                         android:background="@drawable/search_type_item1" />
                 </LinearLayout>
             </LinearLayout>
-            //一周主题
+          <!--一周主题-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -80,7 +80,7 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
-            //网络获取 六张图
+            <!--网络获取 六张图-->
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/Type_recyclerView"
@@ -93,7 +93,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
-            //热搜
+            <!--热搜-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -118,7 +118,7 @@
                     android:textSize="12sp"
                     android:textStyle="italic" />
             </LinearLayout>
-            //网络获取 水平滑动
+            <!--网络获取 水平滑动-->
 
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/Type_recyclerViewSearchKey"
@@ -130,7 +130,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
 
-            //女装
+            <!--女装-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -166,7 +166,7 @@
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
 
-            //鞋包配饰
+            <!--鞋包配饰-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -201,7 +201,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
-            //男装
+            <!--男装-->
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -236,7 +236,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="2dp"
                 android:background="@drawable/cpn_box_on" />
-            //婴幼儿
+            <!--婴幼儿-->
 
             <LinearLayout
                 android:layout_width="match_parent"

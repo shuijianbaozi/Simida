@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.RadioButton;
 
 import com.example.my.simida.fragment.BrandFragment;
-import com.example.my.simida.fragment.FindFragment;
+import com.example.my.simida.fragment.findfragment.FindFragment;
 import com.example.my.simida.fragment.FirstPageFragment;
 import com.example.my.simida.fragment.MyFragment;
 import com.example.my.simida.fragment.TypeFragment;
