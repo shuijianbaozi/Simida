@@ -8,6 +8,7 @@ import com.example.my.simida.MainActivity;
 import com.example.my.simida.config.ConstantString;
 import com.example.my.simida.ui.LoginActivity;
 import com.example.my.simida.ui.ShopDataActivity;
+import com.example.my.simida.ui.StylepickActivity;
 import com.example.my.simida.ui.TypetopwebActivity;
 import com.example.my.simida.ui.Typeweb;
 
@@ -45,6 +46,20 @@ public class UIManager {
         intent.putExtra(ConstantString.Search_Name, params);
         _context.startActivity(intent);
     }
+
+    public static void startStylePick(Context _context, String params) {
+        Intent intent = new Intent();
+        intent.setClass(_context, StylepickActivity.class);
+        intent.putExtra(ConstantString.STYLE_PICK, params);
+        _context.startActivity(intent);
+    }
+
+//    public static void startBaseSearch(Context _context, String params) {
+//        Intent intent = new Intent();
+//        intent.setClass(_context, TypetopwebActivity.class);
+//        intent.putExtra(ConstantString.Search_Name, params);
+//        _context.startActivity(intent);
+//    }
 
 
 }

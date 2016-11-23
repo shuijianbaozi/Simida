@@ -25,6 +25,7 @@ import com.example.my.simida.bean.firstpagefragment.MdPickBean;
 import com.example.my.simida.bean.firstpagefragment.StylePickBean;
 import com.example.my.simida.bean.firstpagefragment.TrendPickBean;
 import com.example.my.simida.http.HttpUtils;
+import com.example.my.simida.utils.UIManager;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 
 import java.util.ArrayList;
@@ -37,7 +38,7 @@ import rx.schedulers.Schedulers;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FirstPageFragment extends BaseFragment{
+public class FirstPageFragment extends BaseFragment {
 
     //数据源
     private Context mContext = null;
@@ -51,25 +52,24 @@ public class FirstPageFragment extends BaseFragment{
     private List<TrendPickBean> mTrendPickBeanList = new ArrayList<>();
 
     //控件
-    private ImageView mImageView,mImageView_rep,mImageView_logo;
+    private ImageView mImageView, mImageView_rep, mImageView_logo;
     private TextView mTextView1, mTextView2, mTextView_likecnt;
     //header的控件
-    private TextView mTextView1_header1,mTextView2_header1,mTextView3_header1
-            ,mTextView1_header2,mTextView2_header2,mTextView3_header2
-            ,mTextView1_header3,mTextView2_header3,mTextView3_header3;
+    private TextView mTextView1_header1, mTextView2_header1, mTextView3_header1, mTextView1_header2, mTextView2_header2, mTextView3_header2, mTextView1_header3, mTextView2_header3, mTextView3_header3;
 
     Firstpage_Recycler1_Adapter.IOnItemClickListener itemClickListener_recyclerview = new Firstpage_Recycler1_Adapter.IOnItemClickListener() {
-        @Override
-        public void onItemClick(int position) {
 
+        @Override
+        public void onItemClick(String stylepick_id) {
+            UIManager.startStylePick(mContext, stylepick_id);
         }
     };
 
-    Firstpage_XRecycler_Adapter.IOnItemClickListener itemClickListener_xrecyclerview = new Firstpage_XRecycler_Adapter.IOnItemClickListener(){
+    Firstpage_XRecycler_Adapter.IOnItemClickListener itemClickListener_xrecyclerview = new Firstpage_XRecycler_Adapter.IOnItemClickListener() {
 
         @Override
         public void onItemClick(int position) {
-
+            UIManager.startShopData(mContext, position);
         }
     };
 
@@ -104,23 +104,23 @@ public class FirstPageFragment extends BaseFragment{
         super.onViewCreated(view, savedInstanceState);
         //firstpage中第一个RecyclerView的控件及适配器
         LayoutInflater systemService = (LayoutInflater) mContext.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View inflate = systemService.inflate(R.layout.item_firstpage_up,null,false);
+        View inflate = systemService.inflate(R.layout.item_firstpage_up, null, false);
         mImageView = (ImageView) inflate.findViewById(R.id.firstpage_recyclerview1_image);
         mTextView1 = (TextView) inflate.findViewById(R.id.firstpage_recyclerview1_textview_stylename);
         mTextView2 = (TextView) inflate.findViewById(R.id.firstpage_recyclerview1_textview_count);
         mRecyclerView1 = (RecyclerView) inflate.findViewById(R.id.firstpage_recyclerview1);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
         mRecyclerView1.setLayoutManager(linearLayoutManager);
-        mFirstpage_recycler1_adapter = new Firstpage_Recycler1_Adapter(mContext,mStylePickBeenList,itemClickListener_recyclerview);
+        mFirstpage_recycler1_adapter = new Firstpage_Recycler1_Adapter(mContext, mStylePickBeenList, itemClickListener_recyclerview);
         mRecyclerView1.setAdapter(mFirstpage_recycler1_adapter);
         //firstpage中第二个RecyclerView的控件及适配器
         mImageView_rep = (ImageView) view.findViewById(R.id.firstpage_recyclerview2_image_rep);
         mImageView_logo = (ImageView) view.findViewById(R.id.firstpage_recyclerview2_logo);
         mTextView_likecnt = (TextView) view.findViewById(R.id.firstpage_recyclerview2_likecnt);
         mXRecyclerView = (XRecyclerView) view.findViewById(R.id.firstpage_xrecyclerview);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext,2, OrientationHelper.VERTICAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 2, OrientationHelper.VERTICAL, false);
         mXRecyclerView.setLayoutManager(gridLayoutManager);
-        mFirstpage_xrecycler_adapter = new Firstpage_XRecycler_Adapter(mContext,mMdPickListBeanList,itemClickListener_xrecyclerview);
+        mFirstpage_xrecycler_adapter = new Firstpage_XRecycler_Adapter(mContext, mMdPickListBeanList, itemClickListener_xrecyclerview);
         mXRecyclerView.setAdapter(mFirstpage_xrecycler_adapter);
         mXRecyclerView.addHeaderView(inflate);
 
@@ -135,7 +135,6 @@ public class FirstPageFragment extends BaseFragment{
         mTextView2_header3 = (TextView) inflate.findViewById(R.id.firstpage_header3_text2);
         mTextView3_header3 = (TextView) inflate.findViewById(R.id.firstpage_header3_collection_talk_cnt);
     }
-
 
 
     @Override
@@ -190,6 +189,7 @@ public class FirstPageFragment extends BaseFragment{
         mStylePickBeenList.addAll(stylePick);
         mFirstpage_recycler1_adapter.notifyDataSetChanged();
     }
+
     private void getList2(CountInfo countInfo) {
         //RecyclerView2的集合
         MdPickBean mdPick = countInfo.getResult().getMdPick();
@@ -198,7 +198,8 @@ public class FirstPageFragment extends BaseFragment{
         mMdPickListBeanList.addAll(mdPickList);
         mFirstpage_xrecycler_adapter.notifyDataSetChanged();
     }
-    private void getList3(CountInfo countInfo){
+
+    private void getList3(CountInfo countInfo) {
         List<TrendPickBean> trendPickBeen = countInfo.getResult().getTrendPick();
         mTrendPickBeanList.addAll(trendPickBeen);
         initView();
@@ -210,18 +211,18 @@ public class FirstPageFragment extends BaseFragment{
         String TextView2_header1 = mTrendPickBeanList.get(0).getText2();
         mTextView2_header1.setText(TextView2_header1);
         int TextView3_header1 = mTrendPickBeanList.get(0).getCollectionTalkCnt();
-        mTextView3_header1.setText(TextView3_header1+"");
+        mTextView3_header1.setText(TextView3_header1 + "");
         String TextView1_header2 = mTrendPickBeanList.get(1).getText1();
         mTextView1_header2.setText(TextView1_header2);
         String TextView2_header2 = mTrendPickBeanList.get(1).getText2();
         mTextView2_header2.setText(TextView2_header2);
         int TextView3_header2 = mTrendPickBeanList.get(1).getCollectionTalkCnt();
-        mTextView3_header2.setText(TextView3_header2+"");
+        mTextView3_header2.setText(TextView3_header2 + "");
         String TextView1_header3 = mTrendPickBeanList.get(2).getText1();
         mTextView1_header3.setText(TextView1_header3);
         String TextView2_header3 = mTrendPickBeanList.get(2).getText2();
         mTextView2_header3.setText(TextView2_header3);
         int TextView3_header3 = mTrendPickBeanList.get(2).getCollectionTalkCnt();
-        mTextView3_header3.setText(TextView3_header3+"");
+        mTextView3_header3.setText(TextView3_header3 + "");
     }
 }

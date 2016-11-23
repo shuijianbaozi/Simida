@@ -29,7 +29,8 @@
         <activity android:name=".ui.LoginActivity" />
         <activity android:name=".ui.RegistActivity" />
         <activity android:name=".ui.Typeweb" />
-        <activity android:name=".ui.TypetopwebActivity"></activity>
+        <activity android:name=".ui.TypetopwebActivity" />
+        <activity android:name=".ui.StylepickActivity"></activity>
     </application>
 
 </manifest>
