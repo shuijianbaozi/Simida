@@ -161,8 +161,6 @@ public class FirstPageFragment extends BaseFragment {
                         getList1(countInfo);
                         getList2(countInfo);
                         getList3(countInfo);
-                        int cnt = countInfo.getResult().getStylePick().get(0).getCnt();
-                        Log.e("qqq", "qqq" + cnt);
                     }
                 });
     }
