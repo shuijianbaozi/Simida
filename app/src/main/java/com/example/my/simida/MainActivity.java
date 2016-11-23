@@ -9,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 
+import com.example.my.simida.base.BaseActivity;
 import com.example.my.simida.fragment.BrandFragment;
 import com.example.my.simida.fragment.findfragment.FindFragment;
 import com.example.my.simida.fragment.FirstPageFragment;
@@ -21,7 +22,7 @@ import java.util.List;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
-public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+public class MainActivity extends BaseActivity implements View.OnClickListener {
     @BindView(R.id.rbtn_tab1)
     RadioButton rbtnTab1;
     @BindView(R.id.rbtn_tab2)

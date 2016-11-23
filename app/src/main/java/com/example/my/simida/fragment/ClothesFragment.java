@@ -2,6 +2,7 @@ package com.example.my.simida.fragment;
 
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.my.simida.App;
 import com.example.my.simida.R;
 import com.example.my.simida.adapter.Popular_Recycler_Adapter;
 import com.example.my.simida.base.BaseFragment;
@@ -27,6 +29,8 @@ import com.example.my.simida.bean.goodsdata.DescriptionBean;
 import com.example.my.simida.bean.goodsdata.GoodsBean;
 import com.example.my.simida.bean.goodsdata.PopularBean;
 import com.example.my.simida.bean.goodsdata.ProductBean;
+import com.example.my.simida.bean.shopdata.ShopBean;
+import com.example.my.simida.config.ConstantString;
 import com.example.my.simida.http.HttpUtils;
 
 import java.util.ArrayList;
@@ -106,6 +110,7 @@ public class ClothesFragment extends BaseFragment {
     @BindView(R.id.linearlayout_sendtextview_clothes)
     LinearLayout linearlayoutSendtextviewClothes;
 
+    private String mclothesUrl = null;
 
     private Context mContext = null;
     private Popular_Recycler_Adapter mPopular_recycler_adapter;
@@ -128,9 +133,10 @@ public class ClothesFragment extends BaseFragment {
         mContext = context;
     }
 
-    public static ClothesFragment newInstance() {
+    public static ClothesFragment newInstance(String dataid) {
         ClothesFragment clothesFragment = new ClothesFragment();
         Bundle args = new Bundle();
+        args.putString(ConstantString.CLOTHES_ID, dataid);
         clothesFragment.setArguments(args);
         return clothesFragment;
     }
@@ -144,6 +150,8 @@ public class ClothesFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Bundle bundle = getArguments();
+        mclothesUrl = bundle.getString(ConstantString.CLOTHES_ID);
         View view = inflater.inflate(R.layout.fragment_clothes, container, false);
         ButterKnife.bind(this, view);
         TextPaint tp = textviewExplanClothes.getPaint();
@@ -160,7 +168,7 @@ public class ClothesFragment extends BaseFragment {
         super.onViewCreated(view, savedInstanceState);
         //RecyclerView
 //        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(mContext, LinearLayoutManager.HORIZONTAL, false);
-        GridLayoutManager gridLayoutManager=new GridLayoutManager(mContext,1, OrientationHelper.HORIZONTAL,false);
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 1, OrientationHelper.HORIZONTAL, false);
         recyclerviewClothes.setLayoutManager(gridLayoutManager);
         mPopular_recycler_adapter = new Popular_Recycler_Adapter(mContext, mPopularBeanList, itemClickListener);
         recyclerviewClothes.setAdapter(mPopular_recycler_adapter);
@@ -170,7 +178,8 @@ public class ClothesFragment extends BaseFragment {
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
         super.onActivityCreated(savedInstanceState);
         //json串
-        String popopularUrl = "http://www.thestylewish.com/asia/api/product/v2/productDetailData.do?target_width=600&prd_no=10420338";
+//        String popopularUrl = "http://www.thestylewish.com/asia/api/product/v2/productDetailData.do?target_width=600&prd_no=10420338";
+        String popopularUrl = mclothesUrl;
         HttpUtils.newInstance().getGoodsBean(popopularUrl)
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
@@ -203,7 +212,8 @@ public class ClothesFragment extends BaseFragment {
 
         goodsBean.getResult().getProduct().getMainImgUrl();
         ProductBean productBean = mProductBeanList.get(0);
-        Glide.with(mContext).load(getFinalUrl(productBean.getMainImgUrl(), 100, 150)).into(imageviewClothesactivity);
+        Glide.with(mContext).load(getFinalUrl(productBean.getMainImgUrl(), 450, 300)).into(imageviewClothesactivity);
+
 
         goodsBean.getResult().getProduct().getPrdNm();
         String textview_name = mProductBeanList.get(0).getPrdNm();
@@ -244,5 +254,11 @@ public class ClothesFragment extends BaseFragment {
         imgUrl = imgUrl.replace("${width}", "" + width);
         imgUrl = imgUrl.replace("${height}", "" + length);
         return imgUrl;
+    }
+
+    private ShopBean getShopBean() {
+        ShopBean bean = new ShopBean();
+//        mProductBeanList.get(0)
+        return bean;
     }
 }

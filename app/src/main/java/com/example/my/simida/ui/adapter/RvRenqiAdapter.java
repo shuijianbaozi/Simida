@@ -45,10 +45,16 @@ public class RvRenqiAdapter extends RecyclerViewAdapterHelper<PopPrdListBean> {
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, int position) {
         RenqiViewHolder viewHolder = (RenqiViewHolder) holder;
-        PopPrdListBean popPrdListBean = mList.get(position);
+        final PopPrdListBean popPrdListBean = mList.get(position);
         Glide.with(mContext).load(App.getFinalUrlSmall(popPrdListBean.getRepImgUrl())).into(viewHolder.ivRenqiImg);
         viewHolder.tvRenqiName.setText(popPrdListBean.getPrdNm());
         viewHolder.tvRenqiPrice.setText("￥ " + popPrdListBean.getSalePrice());
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(popPrdListBean.getPrdNo());
+            }
+        });
     }
 
 

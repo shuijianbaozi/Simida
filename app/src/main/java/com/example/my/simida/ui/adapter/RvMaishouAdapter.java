@@ -46,9 +46,15 @@ public class RvMaishouAdapter extends RecyclerViewAdapterHelper<MdPrdListBean> {
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, int position) {
-        MdPrdListBean mdPrdListBean = mList.get(position);
+        final MdPrdListBean mdPrdListBean = mList.get(position);
         MaiShouViewHolder viewHolder = (MaiShouViewHolder) holder;
         Glide.with(mContext).load(App.getFinalUrlSmall(mdPrdListBean.getRepImgUrl())).into(viewHolder.ivShopdataMaishou);
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(mdPrdListBean.getPrdNo());
+            }
+        });
     }
 
     static class MaiShouViewHolder extends RecyclerView.ViewHolder {

@@ -23,8 +23,17 @@ import butterknife.ButterKnife;
  */
 
 public class RvChaoliuAdapter extends RecyclerViewAdapterHelper<HotTrendListBean> {
-    public RvChaoliuAdapter(Context context, List<HotTrendListBean> list) {
+    public interface IOnChaoliuClickListener {
+        void onItemClick(int shopId);
+
+        void onItemLongClick(int position);
+    }
+
+    private IOnChaoliuClickListener listener;
+
+    public RvChaoliuAdapter(Context context, List<HotTrendListBean> list, IOnChaoliuClickListener listener) {
         super(context, list);
+        this.listener = listener;
     }
 
     @Override
@@ -35,11 +44,17 @@ public class RvChaoliuAdapter extends RecyclerViewAdapterHelper<HotTrendListBean
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, int position) {
-        HotTrendListBean hotTrendListBean = mList.get(position);
+        final HotTrendListBean hotTrendListBean = mList.get(position);
         ViewHolder viewHolder = (ViewHolder) holder;
         Glide.with(mContext).load(App.getFinalUrl(hotTrendListBean.getMainImgUrl(), 8000, 800)).into(viewHolder.ivShopChaoliu);
         viewHolder.tvShopChaoliuName.setText(hotTrendListBean.getSalePrice() + "");
         viewHolder.tvShopChaoliuName.setText(hotTrendListBean.getPrdNm());
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(hotTrendListBean.getPrdNo());
+            }
+        });
     }
 
     static class ViewHolder extends RecyclerView.ViewHolder {

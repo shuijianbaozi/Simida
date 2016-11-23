@@ -15,6 +15,7 @@ import com.bumptech.glide.Glide;
 import com.example.my.simida.App;
 import com.example.my.simida.R;
 import com.example.my.simida.base.BaseActivity;
+import com.example.my.simida.bean.AttentionBean;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.MdPrdListBean;
 import com.example.my.simida.bean.shopdata.MdRecommandBean;
@@ -23,17 +24,22 @@ import com.example.my.simida.bean.shopdata.ShopBean;
 import com.example.my.simida.bean.shopdata.ShopDataBean;
 import com.example.my.simida.bean.shopdata.ShopPrdListBean;
 import com.example.my.simida.config.ConstantString;
+import com.example.my.simida.config.UrlConfig;
 import com.example.my.simida.http.HttpUtils;
 import com.example.my.simida.ui.adapter.RvChaoliuAdapter;
 import com.example.my.simida.ui.adapter.RvListAdapter;
 import com.example.my.simida.ui.adapter.RvMaishouAdapter;
 import com.example.my.simida.ui.adapter.RvRenqiAdapter;
+import com.example.my.simida.utils.UIManager;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -81,11 +87,14 @@ public class ShopDataActivity extends BaseActivity {
     private RvRenqiAdapter mRenqiAdapter;
     private RvMaishouAdapter mMaishouAdapter;
     private RvListAdapter mRvListAdapter;
+
     //人气Recycle 的监听器
-    RvRenqiAdapter.IOnRenqiClickListener mRenqiClickListener = new RvRenqiAdapter.IOnRenqiClickListener() {
+    private RvRenqiAdapter.IOnRenqiClickListener mRenqiClickListener = new RvRenqiAdapter.IOnRenqiClickListener() {
         @Override
         public void onItemClick(int shopId) {
-
+            UIManager.startClothes(mContext, shopId);
+            App.ClothesUrl = UrlConfig.CLOTHES_ID + shopId;
+            Log.e(TAG, "onItemClick: " + App.ClothesUrl);
         }
 
         @Override
@@ -94,10 +103,11 @@ public class ShopDataActivity extends BaseActivity {
         }
     };
     //买手Recycle 的监听器
-    RvMaishouAdapter.IOnMaiShouClickListener mMaiShouClickListener = new RvMaishouAdapter.IOnMaiShouClickListener() {
+    private RvMaishouAdapter.IOnMaiShouClickListener mMaiShouClickListener = new RvMaishouAdapter.IOnMaiShouClickListener() {
         @Override
         public void onItemClick(int shopId) {
-
+            UIManager.startClothes(mContext, shopId);
+            App.ClothesUrl = UrlConfig.CLOTHES_ID + shopId;
         }
 
         @Override
@@ -105,10 +115,23 @@ public class ShopDataActivity extends BaseActivity {
 
         }
     };
-    RvListAdapter.IOnListClickListener mListClickListener = new RvListAdapter.IOnListClickListener() {
+    private RvListAdapter.IOnListClickListener mListClickListener = new RvListAdapter.IOnListClickListener() {
         @Override
         public void onItemClick(int shopId) {
+            UIManager.startClothes(mContext, shopId);
+            App.ClothesUrl = UrlConfig.CLOTHES_ID + shopId;
+        }
 
+        @Override
+        public void onItemLongClick(int position) {
+
+        }
+    };
+    private RvChaoliuAdapter.IOnChaoliuClickListener mChaoliuClickListener = new RvChaoliuAdapter.IOnChaoliuClickListener() {
+        @Override
+        public void onItemClick(int shopId) {
+            UIManager.startClothes(mContext, shopId);
+            App.ClothesUrl = UrlConfig.CLOTHES_ID + shopId;
         }
 
         @Override
@@ -122,12 +145,13 @@ public class ShopDataActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_shop_data);
         ButterKnife.bind(this);
+
         initView();
         getJson();
     }
 
     private void initView() {
-        mChaoliuAdapter = new RvChaoliuAdapter(mContext, mHotTrendListBeens);
+        mChaoliuAdapter = new RvChaoliuAdapter(mContext, mHotTrendListBeens, mChaoliuClickListener);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 1, OrientationHelper.HORIZONTAL, false);
         rvShopdataChaoliu.setAdapter(mChaoliuAdapter);
         rvShopdataChaoliu.setLayoutManager(gridLayoutManager);
@@ -195,6 +219,24 @@ public class ShopDataActivity extends BaseActivity {
         mShopPrdListBean.addAll(shopPrdList);
         //商店列表
         ShopBean shop = shopDataBean.getResult().getShop();
+        String brandNm = shop.getBrandNm();
+        BmobQuery<AttentionBean> query = new BmobQuery<AttentionBean>();
+        query.addWhereEqualTo("brandname", brandNm);
+        query.findObjects(new FindListener<AttentionBean>() {
+            @Override
+            public void done(List<AttentionBean> list, BmobException e) {
+                if(e==null){
+//                    for (GameScore gameScore : object) {
+//                        //获得playerName的信息
+//                        gameScore.getPlayerName();
+//                        //获得数据的objectId信息
+//                        gameScore.getObjectId();
+//                        //获得createdAt数据创建时间（注意是：createdAt，不是createAt）
+//                        gameScore.getCreatedAt();
+                    tvShopdataCare.setText("✔️  关注");
+                }
+            }
+        });
         mShopBean.add(shop);
 
         mChaoliuAdapter.notifyDataSetChanged();

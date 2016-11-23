@@ -44,13 +44,18 @@ public class RvListAdapter extends RecyclerViewAdapterHelper<ShopPrdListBean> {
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, int position) {
-        ShopPrdListBean shopPrdListBean = mList.get(position);
+        final ShopPrdListBean shopPrdListBean = mList.get(position);
         ShopListViewHolder viewHolder = (ShopListViewHolder) holder;
         Glide.with(mContext).load(App.getFinalUrlMiddle(shopPrdListBean.getRepImgUrl())).into(viewHolder.ivListShop);
         viewHolder.tvListLikecnt.setText(shopPrdListBean.getLikeCnt() + "");
         viewHolder.tvListName.setText(shopPrdListBean.getPrdNm());
         viewHolder.tvListPrice.setText("￥ " + shopPrdListBean.getSalePrice() + "");
-
+        viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                listener.onItemClick(shopPrdListBean.getPrdNo());
+            }
+        });
 
     }
 

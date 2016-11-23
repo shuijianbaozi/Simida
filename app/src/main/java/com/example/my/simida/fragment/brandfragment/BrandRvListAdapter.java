@@ -24,7 +24,7 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
     public interface IOnBrandListClickListener {
         void onLongClick(int shopId);
 
-        void onGuanzhunClick(String shopName);
+        void onGuanzhunClick(String logoimg, String brandName);
 
         void onPicClick(int position);
     }
@@ -82,17 +82,17 @@ public class BrandRvListAdapter extends RecyclerViewAdapterHelper<ShopListBean.L
         viewholder.btn_fb_rvlist.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                listener.onGuanzhunClick(listBean.getBrandNm());
+                listener.onGuanzhunClick(listBean.getLogoImg(),listBean.getBrandNm());
             }
         });
         viewholder.itemView.setOnLongClickListener(new View.OnLongClickListener() {
-
             @Override
             public boolean onLongClick(View view) {
                 listener.onLongClick(listBean.getShopNo());
                 return true;
             }
         });
+
 
     }
 
