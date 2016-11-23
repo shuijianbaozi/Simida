@@ -22,8 +22,10 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.example.my.simida.App;
 import com.example.my.simida.R;
 import com.example.my.simida.base.BaseFragment;
+import com.example.my.simida.bean.AttentionBean;
 import com.example.my.simida.bean.brandfragment.BannerBean;
 import com.example.my.simida.bean.brandfragment.BrandBean;
 import com.example.my.simida.bean.brandfragment.RankingBean;
@@ -48,6 +50,11 @@ import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
+import cn.bmob.v3.listener.SaveListener;
+import cn.bmob.v3.listener.UpdateListener;
 import rx.Subscriber;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.schedulers.Schedulers;
@@ -118,16 +125,50 @@ public class BrandFragment extends BaseFragment implements View.OnClickListener 
         }
 
         @Override
-        public void onGuanzhunClick(String shopName) {
-            ToastUtils.showTost(mContext, "亲 你已经关注了 " + shopName + " 了呦");
+        public void onGuanzhunClick(String logoimg, final String brandName) {
+            AttentionBean bean = new AttentionBean();
+            bean.setBrandname(brandName);
+            bean.setLogoimg(App.getFinalUrlMiddle(logoimg));
+            bean.save(new SaveListener<String>() {
+                @Override
+                public void done(String s, BmobException e) {
+                    if (e == null) {
+                        ToastUtils.showTost(mContext, "~关注成功");
+                    } else {
+                        BmobQuery<AttentionBean> query = new BmobQuery<AttentionBean>();
+                        query.addWhereEqualTo("brandname", brandName);
+                        query.findObjects(new FindListener<AttentionBean>() {
+                            @Override
+                            public void done(List<AttentionBean> list, BmobException e) {
+                                if (e == null) {
+                                    for (AttentionBean gameScore : list) {
+                                        //获得数据的objectId信息
+                                        String obj = gameScore.getObjectId();
+                                        AttentionBean temp = new AttentionBean();
+                                        temp.setObjectId(obj);
+                                        temp.delete(new UpdateListener() {
+                                            @Override
+                                            public void done(BmobException e) {
+                                                if (e == null) {
+                                                    ToastUtils.showTost(mContext, "取消关注成功");
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }
+            });
         }
 
 
         //// TODO: 16/11/22 商品跳转
         @Override
         public void onPicClick(int position) {
-
-            ToastUtils.showTost(mContext, "物品号" + position);
+//            ToastUtils.showTost(mContext, "物品号" + position);
+            UIManager.startClothes(mContext, position);
         }
     };
 

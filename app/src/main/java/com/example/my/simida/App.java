@@ -13,6 +13,7 @@ public class App extends Application {
     public static boolean isLogin=false;
     public static String APP_username;
     public static String APP_psw;
+    public static String ClothesUrl;
     @Override
     public void onCreate() {
         super.onCreate();

@@ -20,4 +20,7 @@ public class UrlConfig {
 
     //FirstPageFragment--->StylePickActivity
     public static final String STYLEPICK_WEB = "http://www.thestylewish.com/asia/html/mw/stylepick.html?stylepick_id=";
+
+    //shopData-->clothesActivity
+    public static final String CLOTHES_ID = "http://www.thestylewish.com/asia/api/product/v2/productDetailData.do?target_width=600&prd_no=";
 }

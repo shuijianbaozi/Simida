@@ -4,6 +4,7 @@ package com.example.my.simida.utils;
 import android.content.Context;
 import android.content.Intent;
 
+import com.example.my.simida.ClothesActivity;
 import com.example.my.simida.MainActivity;
 import com.example.my.simida.config.ConstantString;
 import com.example.my.simida.ui.LoginActivity;
@@ -54,12 +55,12 @@ public class UIManager {
         _context.startActivity(intent);
     }
 
-//    public static void startBaseSearch(Context _context, String params) {
-//        Intent intent = new Intent();
-//        intent.setClass(_context, TypetopwebActivity.class);
-//        intent.putExtra(ConstantString.Search_Name, params);
-//        _context.startActivity(intent);
-//    }
+    public static void startClothes(Context _context, int params) {
+        Intent intent = new Intent();
+        intent.setClass(_context, ClothesActivity.class);
+        intent.putExtra(ConstantString.CLOTHES_ID, params);
+        _context.startActivity(intent);
+    }
 
 
 }

@@ -5,6 +5,7 @@
     android:layout_height="match_parent">
 
     <FrameLayout
+        android:id="@+id/fl_first_top1"
         android:background="@mipmap/firstpage_header_green"
         android:layout_margin="3dp"
         android:layout_width="match_parent"

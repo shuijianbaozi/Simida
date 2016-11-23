@@ -16,5 +16,7 @@ public class ConstantString {
     public static final String CATE_Name="cate_name";
     public static final String Search_Name="cate_name";
     public static final String STYLE_PICK="style_pick";
+    //clothesActivity
+    public static final String CLOTHES_ID="clothes_id";
 
 }

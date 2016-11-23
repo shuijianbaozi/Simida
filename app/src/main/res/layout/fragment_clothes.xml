@@ -1,7 +1,6 @@
-<android.support.design.widget.CoordinatorLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.example.my.simida.ClothesActivity">
@@ -15,284 +14,283 @@
             android:id="@+id/collapsingtoolbar_clothes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|enterAlwaysCollapsed"
-            >
+            app:layout_scrollFlags="scroll|enterAlwaysCollapsed">
 
             <ImageView
                 android:id="@+id/imageview_clothesactivity"
                 android:layout_width="match_parent"
                 android:layout_height="450dp"
-                />
+                android:scaleType="fitXY" />
 
         </android.support.design.widget.CollapsingToolbarLayout>
     </android.support.design.widget.AppBarLayout>
 
     <android.support.v4.widget.NestedScrollView
-        app:layout_behavior="@string/appbar_scrolling_view_behavior"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="800dp"
             android:orientation="vertical">
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content">
 
-            <TextView
-                android:id="@+id/textview_name_clothes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                />
-
-            <TextView
-                android:id="@+id/textview_money_clothes"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/textview_name_clothes"
-                android:layout_marginTop="10dp"
-                android:textSize="30sp"
-                android:textColor="@color/colorAccent"
-                android:text="￥"/>
-
-            <TextView
-                android:id="@+id/textview_price_clothes"
-                android:textColor="@color/colorAccent"
-                android:layout_below="@id/textview_name_clothes"
-                android:layout_toRightOf="@id/textview_money_clothes"
-                android:layout_marginTop="10dp"
-                android:textSize="30sp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                />
-
-
-            <TextView
-                android:id="@+id/textview_explan_clothes"
-                android:layout_below="@id/textview_price_clothes"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/item_textview_explan"
-                android:textSize="18sp"
-                android:background="@mipmap/brandmain_btn_box_press"/>
-
-
-            <TextView
-                android:id="@+id/textview_explan_item1"
-                android:layout_below="@id/textview_explan_clothes"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/textview_explan_item2"
-                android:layout_below="@id/textview_explan_item1"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textview_explan_item3"
-                android:layout_below="@id/textview_explan_item2"
-                android:layout_marginLeft="10dp"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-            <TextView
-                android:id="@+id/textview_explan_info1"
-                android:layout_marginLeft="30dp"
-                android:layout_toRightOf="@id/textview_explan_item1"
-                android:layout_alignBottom="@id/textview_explan_item1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textview_explan_info2"
-                android:layout_marginLeft="30dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/textview_explan_item2"
-                android:layout_alignBottom="@id/textview_explan_item2"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textview_explan_info3"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="5dp"
-                android:layout_toRightOf="@id/textview_explan_item3"
-                android:layout_alignBottom="@id/textview_explan_item3"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
-
-            <TextView
-                android:id="@+id/textview_popular_clothes"
-                android:layout_below="@id/textview_explan_item3"
-                android:layout_marginTop="15dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/item_textview_popular"
-                android:textSize="18sp"
-                android:background="@mipmap/brandmain_btn_box_press"/>
-
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/recyclerview_clothes"
-                android:layout_below="@id/textview_popular_clothes"
-                android:layout_marginTop="10dp"
-                android:layout_width="wrap_content"
-                android:layout_height="160dp">
-
-            </android.support.v7.widget.RecyclerView>
-
-            <TextView
-                android:id="@+id/textview_know_clothes"
-                android:layout_below="@id/recyclerview_clothes"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/item_textview_know"
-                android:textSize="18sp"
-                android:background="@mipmap/brandmain_btn_box_press"/>
-
-            <LinearLayout
-                android:id="@+id/linearlayout_send_clothes"
-                android:layout_below="@id/textview_know_clothes"
-                android:layout_marginLeft="5dp"
-                android:layout_marginRight="5dp"
-                android:layout_marginTop="10dp"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_info1"
-                    android:src="@mipmap/item_ic_shipping_info1"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_line1"
-                    android:src="@mipmap/item_line_dot"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_info2"
-                    android:src="@mipmap/item_ic_shipping_info2"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_line2"
-                    android:src="@mipmap/item_line_dot"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_info3"
-                    android:src="@mipmap/item_ic_shipping_info3"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_line3"
-                    android:src="@mipmap/item_line_dot"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_info4"
-                    android:src="@mipmap/item_ic_shipping_info4"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_line4"
-                    android:src="@mipmap/item_line_dot"
-                    android:layout_weight="1"
-                    android:layout_gravity="center"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-
-                <ImageView
-                    android:id="@+id/imageview_shipping_info5"
-                    android:src="@mipmap/item_ic_shipping_info5"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/linearlayout_sendtextview_clothes"
-                android:layout_below="@id/linearlayout_send_clothes"
-                android:orientation="horizontal"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/textview_payline1"
-                    android:layout_weight="1"
+                    android:id="@+id/textview_name_clothes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/textview_money_clothes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_name_clothes"
+                    android:layout_marginTop="10dp"
+                    android:text="￥"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30sp" />
+
+                <TextView
+                    android:id="@+id/textview_price_clothes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_name_clothes"
+                    android:layout_marginTop="10dp"
+                    android:layout_toRightOf="@id/textview_money_clothes"
+                    android:textColor="@color/colorAccent"
+                    android:textSize="30sp" />
+
+
+                <TextView
+                    android:id="@+id/textview_explan_clothes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_price_clothes"
+                    android:layout_marginTop="15dp"
+                    android:background="@mipmap/brandmain_btn_box_press"
+                    android:text="@string/item_textview_explan"
+                    android:textSize="18sp" />
+
+
+                <TextView
+                    android:id="@+id/textview_explan_item1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_explan_clothes"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="10dp" />
+
+                <TextView
+                    android:id="@+id/textview_explan_item2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_explan_item1"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:id="@+id/textview_explan_item3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_explan_item2"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginTop="5dp" />
+
+                <TextView
+                    android:id="@+id/textview_explan_info1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/textview_explan_item1"
+                    android:layout_marginLeft="30dp"
+                    android:layout_toRightOf="@id/textview_explan_item1" />
+
+                <TextView
+                    android:id="@+id/textview_explan_info2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/textview_explan_item2"
+                    android:layout_marginLeft="30dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/textview_explan_item2" />
+
+                <TextView
+                    android:id="@+id/textview_explan_info3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBottom="@id/textview_explan_item3"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="5dp"
+                    android:layout_toRightOf="@id/textview_explan_item3" />
+
+                <TextView
+                    android:id="@+id/textview_popular_clothes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_explan_item3"
+                    android:layout_marginTop="15dp"
+                    android:background="@mipmap/brandmain_btn_box_press"
+                    android:text="@string/item_textview_popular"
+                    android:textSize="18sp" />
+
+                <android.support.v7.widget.RecyclerView
+                    android:id="@+id/recyclerview_clothes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="160dp"
+                    android:layout_below="@id/textview_popular_clothes"
+                    android:layout_marginTop="10dp">
+
+                </android.support.v7.widget.RecyclerView>
+
+                <TextView
+                    android:id="@+id/textview_know_clothes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/recyclerview_clothes"
+                    android:layout_marginTop="10dp"
+                    android:text="@string/item_textview_know"
+                    android:textSize="18sp" />
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_send_clothes"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/textview_know_clothes"
                     android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
+                    android:layout_marginRight="5dp"
+                    android:layout_marginTop="10dp">
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_info1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_ic_shipping_info1" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_line1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_line_dot" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_info2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_ic_shipping_info2" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_line2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_line_dot" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_info3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_ic_shipping_info3" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_line3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_line_dot" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_info4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_ic_shipping_info4" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_line4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_line_dot" />
+
+                    <ImageView
+                        android:id="@+id/imageview_shipping_info5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:src="@mipmap/item_ic_shipping_info5" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/linearlayout_sendtextview_clothes"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/gray"
-                    android:text="@string/item_textview_payline1"/>
+                    android:layout_below="@id/linearlayout_send_clothes"
+                    android:orientation="horizontal">
 
-                <TextView
-                    android:id="@+id/textview_payline2"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/gray"
-                    android:text="@string/item_textview_payline2"/>
+                    <TextView
+                        android:id="@+id/textview_payline1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/item_textview_payline1"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textview_payline3"
-                    android:layout_weight="1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/gray"
-                    android:text="@string/item_textview_payline3"/>
+                    <TextView
+                        android:id="@+id/textview_payline2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/item_textview_payline2"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textview_payline4"
-                    android:layout_weight="1"
-                    android:layout_marginLeft="5dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/gray"
-                    android:text="@string/item_textview_payline4"/>
+                    <TextView
+                        android:id="@+id/textview_payline3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/item_textview_payline3"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
 
-                <TextView
-                    android:id="@+id/textview_payline5"
-                    android:layout_weight="1"
-                    android:gravity="center_horizontal"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:textSize="12sp"
-                    android:textColor="@color/gray"
-                    android:text="@string/item_textview_payline5"/>
+                    <TextView
+                        android:id="@+id/textview_payline4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:layout_weight="1"
+                        android:text="@string/item_textview_payline4"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
 
-            </LinearLayout>
+                    <TextView
+                        android:id="@+id/textview_payline5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center_horizontal"
+                        android:text="@string/item_textview_payline5"
+                        android:textColor="@color/gray"
+                        android:textSize="12sp" />
 
-        </RelativeLayout>
+                </LinearLayout>
+
+            </RelativeLayout>
         </LinearLayout>
 
 
