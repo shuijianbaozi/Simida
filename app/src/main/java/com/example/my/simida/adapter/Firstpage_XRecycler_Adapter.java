@@ -25,12 +25,13 @@ import java.util.List;
  * Created by My on 2016/11/17.
  */
 
-public class Firstpage_XRecycler_Adapter extends RecyclerViewAdapterHelper<MdPickBean.MdPickListBean>{
+public class Firstpage_XRecycler_Adapter extends RecyclerViewAdapterHelper<MdPickBean.MdPickListBean> {
 
-    public interface IOnItemClickListener{
+    public interface IOnItemClickListener {
         void onItemClick(int position);
     }
-    private Firstpage_XRecycler_Adapter.IOnItemClickListener mOnItemClickListener=null;
+
+    private Firstpage_XRecycler_Adapter.IOnItemClickListener mOnItemClickListener = null;
 
     public Firstpage_XRecycler_Adapter(Context context, List<MdPickBean.MdPickListBean> list, IOnItemClickListener mOnItemClickListener) {
         super(context, list);
@@ -40,29 +41,29 @@ public class Firstpage_XRecycler_Adapter extends RecyclerViewAdapterHelper<MdPic
     //绑定视图
     @Override
     public RecyclerView.ViewHolder onCreateMyViewHolder(ViewGroup parent, int viewType) {
-        View itemView = LayoutInflater.from(mContext).inflate(R.layout.item_recyclerview_vertical,null,false);
+        View itemView = LayoutInflater.from(mContext).inflate(R.layout.item_recyclerview_vertical, null, false);
         return new MyViewHolder(itemView);
     }
 
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        final Firstpage_XRecycler_Adapter.MyViewHolder holder2= (Firstpage_XRecycler_Adapter.MyViewHolder) holder;
-        MdPickBean.MdPickListBean mdPickListBean = mList.get(position);
-        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getRepImgUrl(),250,250)).into(holder2.imageView_rep);
-        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getBrandLogo(),75,50)).into(holder2.imageView_logo);
-        holder2.textView_likecnt.setText(mdPickListBean.getLikeCnt()+"");
+        final Firstpage_XRecycler_Adapter.MyViewHolder holder2 = (Firstpage_XRecycler_Adapter.MyViewHolder) holder;
+        final MdPickBean.MdPickListBean mdPickListBean = mList.get(position);
+        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getRepImgUrl(), 250, 250)).into(holder2.imageView_rep);
+        Glide.with(mContext).load(getFinalUrl(mdPickListBean.getBrandLogo(), 75, 50)).into(holder2.imageView_logo);
+        holder2.textView_likecnt.setText(mdPickListBean.getLikeCnt() + "");
 
         //点击事件
         holder2.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mOnItemClickListener.onItemClick(position);
+                mOnItemClickListener.onItemClick(mdPickListBean.getShopNo());
             }
         });
     }
 
     //自定义ViewHolder
-    class MyViewHolder extends RecyclerView.ViewHolder{
+    class MyViewHolder extends RecyclerView.ViewHolder {
 
         ImageView imageView_rep;
         ImageView imageView_logo;
@@ -75,6 +76,7 @@ public class Firstpage_XRecycler_Adapter extends RecyclerViewAdapterHelper<MdPic
             textView_likecnt = (TextView) itemView.findViewById(R.id.firstpage_recyclerview2_likecnt);
         }
     }
+
     private String getFinalUrl(String imgUrl, int length, int width) {
         imgUrl = imgUrl.replace("${width}", "" + width);
         imgUrl = imgUrl.replace("${height}", "" + length);

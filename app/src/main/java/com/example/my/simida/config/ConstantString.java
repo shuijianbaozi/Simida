@@ -12,8 +12,9 @@ public class ConstantString {
     public static final String SHOPDATA_INTENT_URL_BEFORE = "http://www.thestylewish.com/asia/api/brandshop/shopData.do?shop_no=";
 
     public static final String SHOPDATA_INTENT_URL_NEXT = "&prd_no=&sort_type=02&list_size=60&page_no=1";
-
+    //webViwe intent 传值的key
     public static final String CATE_Name="cate_name";
     public static final String Search_Name="cate_name";
+    public static final String STYLE_PICK="style_pick";
 
 }

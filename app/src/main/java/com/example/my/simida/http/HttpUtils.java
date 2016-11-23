@@ -3,6 +3,7 @@ package com.example.my.simida.http;
 import com.example.my.simida.bean.brandfragment.BrandBean;
 import com.example.my.simida.bean.findfragment.FindBean;
 import com.example.my.simida.bean.firstpagefragment.CountInfo;
+import com.example.my.simida.bean.goodsdata.GoodsBean;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.ShopDataBean;
 import com.example.my.simida.bean.typefragment.TypeBean;
@@ -68,6 +69,10 @@ public class HttpUtils {
 
     public Observable<ShopDataBean> getShopDataBean(String brandurl) {
         return mApi.getShopDataBean(brandurl);
+    }
+
+    public Observable<GoodsBean> getGoodsBean(String brandurl) {
+        return mApi.getGoodsBean(brandurl);
     }
 
 

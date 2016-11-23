@@ -17,4 +17,7 @@ public class UrlConfig {
     //Typeweb 的urlBase
     public static final String TYPEWEB_BASEURL = "http://www.thestylewish.com/asia/html/mw/searchlist.html?keyword=";
     public static final String TYPEWEB_BASE = "http://www.thestylewish.com/asia/html/mw/searchlist.html?";
+
+    //FirstPageFragment--->StylePickActivity
+    public static final String STYLEPICK_WEB = "http://www.thestylewish.com/asia/html/mw/stylepick.html?stylepick_id=";
 }

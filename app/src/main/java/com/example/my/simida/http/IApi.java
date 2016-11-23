@@ -1,6 +1,7 @@
 package com.example.my.simida.http;
 
 import com.example.my.simida.bean.brandfragment.BrandBean;
+import com.example.my.simida.bean.goodsdata.GoodsBean;
 import com.example.my.simida.bean.findfragment.FindBean;
 import com.example.my.simida.bean.shopdata.HotTrendListBean;
 import com.example.my.simida.bean.shopdata.ShopDataBean;
@@ -28,6 +29,9 @@ public interface IApi {
 
     @GET
     Observable<ShopDataBean> getShopDataBean(@Url() String url);
+
+    @GET
+    Observable<GoodsBean> getGoodsBean(@Url() String url);
 
     @GET
     Observable<FindBean> getFindBean(@Url() String url);

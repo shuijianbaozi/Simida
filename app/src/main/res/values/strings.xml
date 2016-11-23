@@ -23,4 +23,19 @@
     <string name="my_btn3_cart">购物车</string>
     <string name="my_btn4_order">查看订单</string>
 
+    <string name="item_btn_counsel">客服</string>
+    <string name="item_btn_brand">品牌</string>
+    <string name="item_btn_joincart">加入购物车</string>
+    <string name="item_btn_buy">购买</string>
+
+    <string name="item_textview_explan">商品说明及尺码</string>
+    <string name="item_textview_popular">同类人气商品</string>
+    <string name="item_textview_know">购买/配送须知</string>
+
+    <string name="item_textview_payline1">付款成功</string>
+    <string name="item_textview_payline2">品牌官方确认</string>
+    <string name="item_textview_payline3">海外物流中心</string>
+    <string name="item_textview_payline4">海关通关</string>
+    <string name="item_textview_payline5">国内配送</string>
+
 </resources>

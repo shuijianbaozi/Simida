@@ -27,7 +27,7 @@ import java.util.List;
 public class Firstpage_Recycler1_Adapter extends RecyclerViewAdapterHelper<StylePickBean>{
 
     public interface IOnItemClickListener{
-        void onItemClick(int position);
+        void onItemClick(String stylepick_id);
     }
 
     private IOnItemClickListener mOnItemClickListener=null;
@@ -48,7 +48,7 @@ public class Firstpage_Recycler1_Adapter extends RecyclerViewAdapterHelper<Style
     @Override
     public void onBindMyViewHolder(RecyclerView.ViewHolder holder, final int position) {
         final MyViewHolder holder1= (MyViewHolder) holder;
-        StylePickBean stylePickBean = mList.get(position);
+        final StylePickBean stylePickBean = mList.get(position);
 //        Glide.with(mContext).load(getFinalUrl(stylePickBean.getRepImgUrl(),200,200)).into(holder1.imageView);
         Glide.with(mContext).load(getFinalUrl(stylePickBean.getRepImgUrl(),96,96)).asBitmap().centerCrop().into(new BitmapImageViewTarget(holder1.imageView) {
             @Override
@@ -66,7 +66,7 @@ public class Firstpage_Recycler1_Adapter extends RecyclerViewAdapterHelper<Style
         holder1.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mOnItemClickListener.onItemClick(position);
+                mOnItemClickListener.onItemClick(stylePickBean.getStylepickId());
             }
         });
     }
