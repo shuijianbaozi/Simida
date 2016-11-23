@@ -29,6 +29,7 @@ import com.example.my.simida.bean.goodsdata.DescriptionBean;
 import com.example.my.simida.bean.goodsdata.GoodsBean;
 import com.example.my.simida.bean.goodsdata.PopularBean;
 import com.example.my.simida.bean.goodsdata.ProductBean;
+import com.example.my.simida.bean.shopdata.ShopBean;
 import com.example.my.simida.config.ConstantString;
 import com.example.my.simida.http.HttpUtils;
 
@@ -253,5 +254,11 @@ public class ClothesFragment extends BaseFragment {
         imgUrl = imgUrl.replace("${width}", "" + width);
         imgUrl = imgUrl.replace("${height}", "" + length);
         return imgUrl;
+    }
+
+    private ShopBean getShopBean() {
+        ShopBean bean = new ShopBean();
+//        mProductBeanList.get(0)
+        return bean;
     }
 }
