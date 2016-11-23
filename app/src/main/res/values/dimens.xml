@@ -12,6 +12,7 @@
 
     <dimen name="item_icon_qq">60dp</dimen>
     <dimen name="item_find_view">20dp</dimen>
+    <dimen name="margin">10dp</dimen>
 
 
 </resources>

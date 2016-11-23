@@ -43,4 +43,25 @@
     <string name="find_item_4">私蜜圈</string>
     <string name="find_item_5">TOP榜</string>
 
+
+
+
+    <string name="confirm_list">确认订单</string>
+    <string name="address">收货地址</string>
+    <string name="name">Amanda</string>
+    <string name="phone">12333333333</string>
+    <string name="add">辽宁省大连市旅顺口区</string>
+    <string name="add2">大连交通大学</string>
+    <string name="otherstyle">填写其他配送信息</string>
+
+    <string name="choose_address">选择收货地址</string>
+    <string name="list_detail">商品订单详情</string>
+    <string name="choose_style">选择配送方式</string>
+
+    <string name="buy_price">商品价格</string>
+    <string name="yuanTong">圆通速递</string>
+    <string name="shunFen">顺丰速递</string>
+
+    <string name="buybuybuy">买买买</string>
+
 </resources>
