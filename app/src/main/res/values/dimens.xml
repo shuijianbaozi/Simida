@@ -8,6 +8,7 @@
     <dimen name="item_type_linlay_w">110dp</dimen>
     <dimen name="item_type_linlay_h">140dp</dimen>
     <dimen name="item_type_text_h">30dp</dimen>
+    <dimen name="item_type_text_shi">50dp</dimen>
 
 
     <dimen name="item_icon_qq">60dp</dimen>

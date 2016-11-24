@@ -120,6 +120,8 @@ public class FirstPageFragment extends BaseFragment {
         mXRecyclerView = (XRecyclerView) view.findViewById(R.id.firstpage_xrecyclerview);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(mContext, 2, OrientationHelper.VERTICAL, false);
         mXRecyclerView.setLayoutManager(gridLayoutManager);
+        mXRecyclerView.setPullRefreshEnabled(false);
+        mXRecyclerView.setLoadingMoreEnabled(false);
         mFirstpage_xrecycler_adapter = new Firstpage_XRecycler_Adapter(mContext, mMdPickListBeanList, itemClickListener_xrecyclerview);
         mXRecyclerView.setAdapter(mFirstpage_xrecycler_adapter);
         mXRecyclerView.addHeaderView(inflate);

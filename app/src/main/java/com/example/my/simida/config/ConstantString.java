@@ -18,5 +18,8 @@ public class ConstantString {
     public static final String STYLE_PICK="style_pick";
     //clothesActivity
     public static final String CLOTHES_ID="clothes_id";
+    //BuyActivity
+    public static final String BUY_KRY = "buy_key";
+    public static final String BUY_BUNDLE_KRY = "buy_bundle_key";
 
 }

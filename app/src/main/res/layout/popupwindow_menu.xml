@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#45666666"
+    android:gravity="center"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/tv_pop"
+        android:textSize="15sp"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:gravity="center"
+        android:background="@color/white"
+        android:text="大连交通大学！！" />
+
+    <Button
+        android:id="@+id/button_confirm"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/wrp_pink"
+        android:onClick="clickButton"
+        android:text="我知道啦"
+        android:textColor="#FFF"
+        android:textSize="14sp" />
+
+
+</LinearLayout>

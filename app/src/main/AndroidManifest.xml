@@ -20,7 +20,6 @@
         <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -30,6 +29,8 @@
         <activity android:name=".ui.RegistActivity" />
         <activity android:name=".ui.Typeweb" />
         <activity android:name=".ui.TypetopwebActivity" />
+        <activity android:name=".ui.StylepickActivity" />
+        <activity android:name=".ui.ShopcarActivity"></activity>
         <activity android:name=".ui.StylepickActivity"></activity>
         <activity android:name=".ui.BuyActivity"></activity>
     </application>

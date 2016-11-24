@@ -11,7 +11,7 @@ import java.util.List;
 public class ShopDataBean {
     @Override
     public String toString() {
-        return "ShopDataBean{" +
+        return "ShopDataCarBean{" +
                 "result=" + result +
                 '}';
     }

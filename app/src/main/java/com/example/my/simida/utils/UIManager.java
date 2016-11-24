@@ -3,12 +3,16 @@ package com.example.my.simida.utils;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Bundle;
 
 import com.example.my.simida.ClothesActivity;
 import com.example.my.simida.MainActivity;
+import com.example.my.simida.bean.BuyBean;
 import com.example.my.simida.config.ConstantString;
+import com.example.my.simida.ui.BuyActivity;
 import com.example.my.simida.ui.LoginActivity;
 import com.example.my.simida.ui.ShopDataActivity;
+import com.example.my.simida.ui.ShopcarActivity;
 import com.example.my.simida.ui.StylepickActivity;
 import com.example.my.simida.ui.TypetopwebActivity;
 import com.example.my.simida.ui.Typeweb;
@@ -59,6 +63,21 @@ public class UIManager {
         Intent intent = new Intent();
         intent.setClass(_context, ClothesActivity.class);
         intent.putExtra(ConstantString.CLOTHES_ID, params);
+        _context.startActivity(intent);
+    }
+
+    public static void startShopCar(Context _context) {
+        Intent intent = new Intent();
+        intent.setClass(_context, ShopcarActivity.class);
+        _context.startActivity(intent);
+    }
+
+    public static void startBuy(Context _context, BuyBean bean) {
+        Intent intent = new Intent();
+        intent.setClass(_context, BuyActivity.class);
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(ConstantString.BUY_KRY, bean);
+        intent.putExtra(ConstantString.BUY_BUNDLE_KRY, bundle);
         _context.startActivity(intent);
     }
 

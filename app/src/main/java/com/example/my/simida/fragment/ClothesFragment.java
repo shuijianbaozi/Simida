@@ -25,11 +25,13 @@ import com.example.my.simida.App;
 import com.example.my.simida.R;
 import com.example.my.simida.adapter.Popular_Recycler_Adapter;
 import com.example.my.simida.base.BaseFragment;
+import com.example.my.simida.bean.ShopDataCarBean;
 import com.example.my.simida.bean.goodsdata.DescriptionBean;
 import com.example.my.simida.bean.goodsdata.GoodsBean;
 import com.example.my.simida.bean.goodsdata.PopularBean;
 import com.example.my.simida.bean.goodsdata.ProductBean;
 import com.example.my.simida.bean.shopdata.ShopBean;
+import com.example.my.simida.bean.shopdata.ShopDataBean;
 import com.example.my.simida.config.ConstantString;
 import com.example.my.simida.http.HttpUtils;
 
@@ -256,9 +258,12 @@ public class ClothesFragment extends BaseFragment {
         return imgUrl;
     }
 
-    private ShopBean getShopBean() {
-        ShopBean bean = new ShopBean();
-//        mProductBeanList.get(0)
+    public ShopDataCarBean getShopBean() {
+        ShopDataCarBean bean = new ShopDataCarBean();
+        bean.setPrdnm(mProductBeanList.get(0).getPrdNm());
+        bean.setRepimgurl(App.getFinalUrlMiddle(mProductBeanList.get(0).getMainImgUrl()));
+        bean.setSalePrice(mProductBeanList.get(0).getSalePrice() + "");
+        bean.setItemcount(1);
         return bean;
     }
 }

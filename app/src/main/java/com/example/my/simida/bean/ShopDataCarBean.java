@@ -6,11 +6,12 @@ import cn.bmob.v3.BmobObject;
  * Created by apple on 16/11/23.
  */
 
-public class ShopDataBean extends BmobObject {
+public class ShopDataCarBean extends BmobObject {
     String prdnm;
     String repimgurl;
     String salePrice;
-    String itemcount;
+    int itemcount;
+
 
     public String getPrdnm() {
         return prdnm;
@@ -36,11 +37,11 @@ public class ShopDataBean extends BmobObject {
         this.salePrice = salePrice;
     }
 
-    public String getItemcount() {
+    public int getItemcount() {
         return itemcount;
     }
 
-    public void setItemcount(String itemcount) {
+    public void setItemcount(int itemcount) {
         this.itemcount = itemcount;
     }
 }

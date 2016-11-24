@@ -10,7 +10,6 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/burlywood"
         android:orientation="horizontal">
 
         <ImageView
@@ -21,7 +20,6 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@color/purple"
             android:gravity="center"
             android:text="@string/confirm_list"
             android:textSize="26sp" />
@@ -70,7 +68,7 @@
                 <Button
                     android:layout_width="wrap_content"
                     android:layout_height="40dp"
-                    android:background="@drawable/cat_bar_round"
+                    android:background="@drawable/wrp_pink"
                     android:text="@string/choose_address"
                     android:textColor="@color/colorAccent" />
             </LinearLayout>
@@ -124,74 +122,11 @@
                     android:layout_height="wrap_content" />
             </LinearLayout>
 
-            <TextView
-                android:id="@+id/buy_brand"
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rc_buy"
                 android:layout_width="match_parent"
-                android:layout_height="40dp"
-                android:background="@color/crimson"
-                android:gravity="center" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:id="@+id/buy_img"
-                    android:layout_width="@dimen/item_type_linlay_w"
-                    android:layout_height="@dimen/item_type_linlay_w"
-                    android:background="@color/colorPrimaryDark" />
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/introduce"
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/item_icon_qq"
-                        android:background="@color/colorAccent" />
-
-                    <TextView
-                        android:id="@+id/color_size"
-                        android:layout_width="match_parent"
-                        android:layout_height="20dp"
-                        android:layout_marginLeft="@dimen/home_firstpage_title"
-                        android:text="color_gsize" />
-
-
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="@dimen/item_type_text_h"
-                        android:layout_marginLeft="@dimen/home_firstpage_title"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/buy_num"
-                            android:layout_width="60dp"
-                            android:layout_height="30dp"
-                            android:background="@color/cadetblue"
-                            android:gravity="center"
-                            android:text="asdasd" />
-
-                        <TextView
-                            android:layout_width="0dp"
-                            android:layout_height="match_parent"
-                            android:layout_weight="1" />
-
-                        <TextView
-                            android:id="@+id/buy_price"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginRight="20dp"
-                            android:text="@string/buy_price" />
-                    </LinearLayout>
-
-                </LinearLayout>
-
-
-            </LinearLayout>
+                android:layout_height="match_parent" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -213,7 +148,6 @@
                     <RadioButton
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:checked="true"
                         android:text="@string/yuanTong" />
 
                     <RadioButton
@@ -227,14 +161,13 @@
             </LinearLayout>
 
             <Button
-                android:layout_marginTop="@dimen/home_firstpage_title"
                 android:id="@+id/buybuybuy"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@color/colorPrimary"
+                android:layout_marginTop="@dimen/home_firstpage_title"
+                android:background="@color/colorAccent"
                 android:text="@string/buybuybuy"
-                android:textSize="20sp"
-                />
+                android:textSize="20sp" />
         </LinearLayout>
 
 

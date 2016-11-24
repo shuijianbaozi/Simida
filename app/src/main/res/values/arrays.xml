@@ -7,4 +7,14 @@
         <item>typrFragment</item>
         <item>myFragment</item>
     </string-array>
+    <string-array name="tishi">
+        <item>今天大衣特价，快去选购啊。贼便宜</item>
+        <item>今天鞋子55折，点击就送50元大礼包，还在等什么</item>
+        <item>袜子专区出事了，还不去看一看</item>
+        <item>浙江温州皮革城倒闭了，鞋子统统20元！统统20元</item>
+        <item>我们都穿羽绒服了，你呢？</item>
+        <item>全程只要998，美女选购抱回家</item>
+        <item>天猫，京东都特价，我就不特价，因为我们都是假货，哈哈哈哈哈，你敢买么</item>
+        <item>亲爱的买家，我送你一朵小花，代表我对你最真挚的爱情，快来羞辱我吧</item>
+    </string-array>
 </resources>
