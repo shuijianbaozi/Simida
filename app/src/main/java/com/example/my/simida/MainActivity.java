@@ -146,7 +146,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         }
         ft.show(mMainFragments.get(0));
         ft.commit();
-
     }
 
     @Override
@@ -182,7 +181,6 @@ public class MainActivity extends BaseActivity implements View.OnClickListener {
         FragmentTransaction ft = mFragmentManager.beginTransaction();
         for (int i = 0; i < mMainFragments.size(); i++) {
             ft.hide(mMainFragments.get(i));
-
         }
         ft.show(mMainFragments.get(num));
         Log.e("log", "" + num);
